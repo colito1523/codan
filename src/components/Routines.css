@@ -1,0 +1,158 @@
+.routines {
+  background-color: #000;
+  padding: 60px 0;
+}
+
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+.levels-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.level-card-container {
+  width: 32%;
+  min-width: 250px;
+  margin-bottom: 20px;
+  perspective: 1000px;
+}
+
+.level-card {
+  width: 100%;
+  background-color: #111;
+  border: 1px solid #333;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.level-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-front {
+  background-color: #111;
+}
+
+.card-back {
+  background-color: #111;
+  transform: rotateY(180deg);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.level-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.refresh-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #fff;
+  font-size: 20px;
+  z-index: 2;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  flex: 1;
+}
+
+.grayscale img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.level-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover .overlay-text {
+  transform: translateY(0);
+}
+
+.level-description-text {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.level-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-top: 1px solid #333;
+}
+
+.level-button:hover {
+  background-color: #ff3b3b;
+}
+
+@media (max-width: 992px) {
+  .level-card-container {
+    width: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .level-card-container {
+    width: 100%;
+  }
+
+  .card-inner {
+    height: 350px;
+  }
+}
+

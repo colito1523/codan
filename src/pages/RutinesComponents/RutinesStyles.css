@@ -1,0 +1,209 @@
+.asesoramiento-page {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.asesoramiento-main {
+  padding-top: 20px;
+}
+
+.asesoramiento-hero {
+  padding: 40px 0;
+}
+
+.asesoramiento-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.asesoramiento-title .accent {
+  color: #ff3b3b;
+}
+
+.asesoramiento-subtitle {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rutinas-premium {
+  color: #ff3b3b;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.rutinas-description {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.rutinas-section {
+  padding: 30px 0;
+}
+
+.level-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.rutinas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.rutina-card {
+  background-color: #111;
+  border: 1px solid #333;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.rutina-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.rutina-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.rutina-card:hover .rutina-image {
+  filter: grayscale(0%);
+}
+
+.rutina-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.rutina-title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.rutina-description {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.rutina-price {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.rutina-button {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.rutina-button:hover {
+  background-color: #ff3b3b;
+  border-color: #ff3b3b;
+}
+
+.contacto-section {
+  padding: 50px 0;
+  border-top: 1px solid #333;
+}
+
+.contacto-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.contacto-form {
+  max-width: 800px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 12px 15px;
+  font-size: 14px;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-button {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.form-button:hover {
+  background-color: #ff3b3b;
+  border-color: #ff3b3b;
+}
+
+@media (max-width: 992px) {
+  .rutinas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .rutinas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
