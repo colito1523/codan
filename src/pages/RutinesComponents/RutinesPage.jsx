@@ -1,6 +1,16 @@
 
 import { useState } from "react"
 import "../RutinesComponents/RutinesStyles.css"
+import rutine1 from "../../assets/rutinespage1.png"
+import rutine2 from "../../assets/rutinespage2.jpg"
+import rutine3 from "../../assets/rutinespage3.jpg"
+import rutine4 from "../../assets/rutinespage4.jpg"
+import rutine5 from "../../assets/rutinespage5.jpg"
+import rutine6 from "../../assets/rutinespage6.jpg"
+import rutine7 from "../../assets/rutinespage7.jpg"
+import rutine8 from "../../assets/rutinespage8.jpg"
+import rutine9 from "../../assets/rutinespage9.jpg"
+
 
 const Rutinas = () => {
   const [formData, setFormData] = useState({
@@ -37,22 +47,19 @@ const Rutinas = () => {
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza para principiantes que buscan desarrollar masa muscular y fuerza básica.",
         price: "15.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RMn6ZATUMVGvNi142PwWHHfePOtnyZ.png",
-      },
+        image: rutine1,      },
       {
         id: 2,
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza para principiantes enfocada en técnica y adaptación muscular.",
         price: "20.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-GagyvOq2efq8qUrHRm5o57Sd0vM04J.png",
-      },
+        image: rutine2,      },
       {
         id: 3,
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza para principiantes con énfasis en movimientos compuestos.",
         price: "18.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rkNvYoSsiuHpfPChH1l4vNpCuNBZTb.png",
-      },
+        image: rutine3,      },
     ],
     intermedio: [
       {
@@ -60,22 +67,19 @@ const Rutinas = () => {
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza para nivel intermedio con enfoque en hipertrofia y definición muscular.",
         price: "22.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rkNvYoSsiuHpfPChH1l4vNpCuNBZTb.png",
-      },
+        image: rutine4,      },
       {
         id: 5,
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza para nivel intermedio con periodización y variación de estímulos.",
         price: "25.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RMn6ZATUMVGvNi142PwWHHfePOtnyZ.png",
-      },
+        image: rutine5,      },
       {
         id: 6,
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza para nivel intermedio con especialización en grupos musculares.",
         price: "23.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-GagyvOq2efq8qUrHRm5o57Sd0vM04J.png",
-      },
+        image: rutine6,      },
     ],
     avanzado: [
       {
@@ -83,22 +87,19 @@ const Rutinas = () => {
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza avanzada con técnicas de intensidad y sobrecarga progresiva.",
         price: "28.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-GagyvOq2efq8qUrHRm5o57Sd0vM04J.png",
-      },
+        image: rutine7,      },
       {
         id: 8,
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza avanzada con métodos especializados para romper mesetas.",
         price: "30.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rkNvYoSsiuHpfPChH1l4vNpCuNBZTb.png",
-      },
+        image: rutine8,      },
       {
         id: 9,
         title: "FUERZA DESDE INTERMEDIO",
         description: "Rutina de fuerza avanzada con enfoque en rendimiento y optimización neuromuscular.",
         price: "32.000",
-        image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RMn6ZATUMVGvNi142PwWHHfePOtnyZ.png",
-      },
+        image: rutine9,      },
     ],
   }
 
