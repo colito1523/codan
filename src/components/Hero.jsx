@@ -20,23 +20,23 @@ const Hero = () => {
     },
     {
       image: sliderImage,
-      title1: "MEJORA",
-      titleAccent1: "TU RENDIMIENTO",
-      title2: "CON NUESTROS",
-      titleAccent2: "ENTRENADORES EXPERTOS",
+      title1: "PERDE",
+      titleAccent1: "GRASA",
+      title2: "GANA",
+      titleAccent2: "MASA MUSCULAR",
       description:
-        "Nuestros entrenadores certificados te guiarán en cada paso del camino para maximizar tus resultados y evitar lesiones.",
-      buttonText: "CONOCE AL EQUIPO",
+        "Descubre nuestros planes nutricionales personalizados diseñados para perder peso de manera efectiva o ganar masa muscular de forma saludable",
+      buttonText: "VER MÁS",
     },
     {
       image: sliderImage,
-      title1: "OPTIMIZA",
-      titleAccent1: "TU NUTRICIÓN",
-      title2: "CON NUESTROS",
-      titleAccent2: "PLANES PERSONALIZADOS",
+      title1: "ALCANZA",
+      titleAccent1: "TUS OBJETIVOS",
+      title2: "DE FORMA",
+      titleAccent2: "PERSONALIZADO",
       description:
-        "La nutrición adecuada es clave para alcanzar tus objetivos. Nuestros planes nutricionales están diseñados específicamente para ti.",
-      buttonText: "VER PLANES",
+        "Nuestra asesoría especializada en entrenamiento, diseñada para ayudarte a perder peso y ganar masa muscular. Con planes adaptados a tus necesidades y un enfoque en ejercicios efectivos",
+      buttonText: "VER MÁS",
     },
   ]
 
@@ -71,7 +71,6 @@ const Hero = () => {
             style={{ backgroundImage: `url(${slide.image})` }}
           >
             <div className="hero-overlay">
-              <div className="container">
                 <div className="hero-content">
                   <h2 className="hero-title">
                     {slide.title1} <span className="accent">{slide.titleAccent1}</span>
@@ -82,7 +81,6 @@ const Hero = () => {
                   <p className="hero-subtitle">{slide.description}</p>
                   <button className="hero-button">{slide.buttonText}</button>
                 </div>
-              </div>
             </div>
           </div>
         ))}

@@ -36,7 +36,7 @@
 
 .trainer-card.valentino {
   top: 25%;
-  left: 40%;
+  left: 50%;
   z-index: 1;
 }
 
@@ -86,12 +86,14 @@
 .trainer-card:hover .trainer-name {
   background-color: #ff3b3b;
   color: #fff;
+  box-shadow: 0 0 20px rgba(255, 59, 59, 0.8);
 }
 
 .about-text {
   flex: 1;
   min-width: 300px;
   position: relative;
+  font-weight: bold;
 }
 
 .title-container-with-bg {
@@ -137,6 +139,21 @@
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 15px;
+}
+.name-highlight {
+  color: #ff3b3b;
+  font-weight: bold;
+  position: relative;
+  padding-left: 16px;
+}
+
+.name-highlight::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #ff3b3b;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 @media (max-width: 992px) {

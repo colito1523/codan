@@ -52,7 +52,10 @@ const FAQ = () => {
                 <span className={`faq-icon ${openFaq === index ? "open" : ""}`}></span>
               </div>
 
-              {openFaq === index && <div className="faq-answer">{faq.answer}</div>}
+              <div className={`faq-answer-wrapper ${openFaq === index ? "open" : ""}`}>
+  <div className="faq-answer">{faq.answer}</div>
+</div>
+
             </div>
           ))}
         </div>

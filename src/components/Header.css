@@ -128,12 +128,29 @@
   justify-content: center;
   gap: 20px;
   padding: 15px 0;
-  border-top: 1px solid #222;
+}
+/* ICONOS EN DESKTOP */
+.icons-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (max-width: 768px) {
   .nav-icons-mobile {
     display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    border-top: 1px solid #222;
+    width: 100%;
   }
 
   .icons-container {
@@ -150,13 +167,6 @@
     flex: 1;
     display: flex;
     justify-content: flex-start;
-  }
-
-  .icons-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .menu-button {
