@@ -10,6 +10,7 @@ import rutine6 from "../../assets/rutinespage6.jpg"
 import rutine7 from "../../assets/rutinespage7.jpg"
 import rutine8 from "../../assets/rutinespage8.jpg"
 import rutine9 from "../../assets/rutinespage9.jpg"
+import ContactForm from "../../components/ContactForm"
 
 
 const Rutinas = () => {
@@ -185,65 +186,7 @@ const Rutinas = () => {
           </div>
         </section>
 
-        <section className="contacto-section" id="contacto-asesoramiento">
-          <div className="container">
-            <h3 className="contacto-title">CONTACTANOS</h3>
-            <form className="contacto-form" onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="form-input"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Nombre"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="form-input"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="form-group">
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  className="form-input"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Teléfono"
-                />
-              </div>
-              <div className="form-group">
-                <textarea
-                  id="message"
-                  name="message"
-                  className="form-textarea"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Mensaje"
-                  rows="4"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" className="form-button">
-                ENVIAR CONSULTA
-              </button>
-            </form>
-          </div>
-        </section>
+        <ContactForm/>
       </main>
     </div>
   )

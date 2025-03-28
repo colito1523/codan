@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import "./NutritionStyles.css"
+import ContactForm from "../../components/ContactForm"
 
 const Nutrition = () => {
   const [showMore, setShowMore] = useState(false)
@@ -128,6 +129,7 @@ const Nutrition = () => {
             </div>
           </div>
         </div>
+        <ContactForm/>
       </main>
     </div>
   )
