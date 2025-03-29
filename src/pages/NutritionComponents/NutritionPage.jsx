@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import "./NutritionStyles.css"
 import ContactForm from "../../components/ContactForm"
 
 const Nutrition = () => {
