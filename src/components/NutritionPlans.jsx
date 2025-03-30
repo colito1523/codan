@@ -1,8 +1,41 @@
 import "./NutritionPlans.css";
 import nutrition1 from "../assets/nutrition1.jpg";
 import nutrition2 from "../assets/nutrition2.jpg";
+import nutrition3 from "../assets/alejandro.jpg";
+import nutrition4 from "../assets/asesoria1.jpg";
+import nutrition5 from "../assets/asesoria2.jpg";
+import nutrition6 from "../assets/asesoria3.jpg";
+
+import { useState, useEffect } from "react";
+
+const sliderInterval = 3000;
 
 const NutritionPlans = () => {
+  const [indexOne, setIndexOne] = useState(0);
+  const [indexTwo, setIndexTwo] = useState(0);
+  const [loadedOne, setLoadedOne] = useState(false);
+  const [loadedTwo, setLoadedTwo] = useState(false);
+
+  const sliderOneImages = [nutrition1, nutrition3, nutrition5];
+  const sliderTwoImages = [nutrition2, nutrition4, nutrition6];
+
+  useEffect(() => {
+    const intervalOne = setInterval(() => {
+      setLoadedOne(false);
+      setIndexOne((prev) => (prev + 1) % sliderOneImages.length);
+    }, sliderInterval);
+
+    const intervalTwo = setInterval(() => {
+      setLoadedTwo(false);
+      setIndexTwo((prev) => (prev + 1) % sliderTwoImages.length);
+    }, sliderInterval);
+
+    return () => {
+      clearInterval(intervalOne);
+      clearInterval(intervalTwo);
+    };
+  }, []);
+
   return (
     <section className="section nutrition-plans" id="nutrition">
       <div className="container">
@@ -18,8 +51,10 @@ const NutritionPlans = () => {
               <div className="trainer-card one">
                 <div className="image-nutrition-container">
                   <img
-                    src={nutrition1}
-                    className="trainer-image"
+                    src={sliderOneImages[indexOne]}
+                    className={`nutrition-image ${loadedOne ? "loaded" : ""}`}
+                    alt="slide uno"
+                    onLoad={() => setLoadedOne(true)}
                   />
                 </div>
               </div>
@@ -27,8 +62,10 @@ const NutritionPlans = () => {
               <div className="trainer-card two">
                 <div className="image-nutrition-container">
                   <img
-                    src={nutrition2}
-                    className="trainer-image"
+                    src={sliderTwoImages[indexTwo]}
+                    className={`nutrition-image ${loadedTwo ? "loaded" : ""}`}
+                    alt="slide dos"
+                    onLoad={() => setLoadedTwo(true)}
                   />
                 </div>
               </div>
@@ -43,7 +80,7 @@ const NutritionPlans = () => {
                 que puedas alcanzar tu objetivo. Desde una Rutina de
                 entrenamiento personalizada (armada en base a un formulario que
                 se te enviará para conocerte bien), un cuaderno de
-                entrenamiento, Hay 3 tipos de Asesorías: La Básica, la Estándar
+                entrenamiento. Hay 3 tipos de Asesorías: La Básica, la Estándar
                 y la Premium.
               </p>
             </div>
@@ -55,7 +92,7 @@ const NutritionPlans = () => {
                 que puedas alcanzar tu objetivo. Desde una Rutina de
                 entrenamiento personalizada (armada en base a un formulario que
                 se te enviará para conocerte bien), un cuaderno de
-                entrenamiento, Hay 3 tipos de Asesorías: La Básica, la Estándar
+                entrenamiento. Hay 3 tipos de Asesorías: La Básica, la Estándar
                 y la Premium.
               </p>
             </div>

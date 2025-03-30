@@ -7,10 +7,11 @@ const Pricing = () => {
   return (
     <section className="section pricing" id="pricing">
       <div className="container">
-        <div className="title-container center">
-          <h2 className="title">ASESORAMIENTO</h2>
-          <h2 className="accent-title">EN CONJUNTO</h2>
-        </div>
+      <div className="title-container center">
+  <h2 className="title">
+    ASESORAMIENTO <span className="accent-title">EN CONJUNTO</span>
+  </h2>
+</div>
 
         <p className="pricing-description">
           En nuestro Asesoría te brindamos todas las herramientas para que puedas alcanzar tu objetivo. Desde una Rutina

@@ -53,10 +53,15 @@
   font-weight: bold;
   margin-bottom: 10px;
   line-height: 1.2;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
 }
 
 .hero-title .accent {
   color: #ff3b3b;
+  line-height: 1.2;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
 }
 
 .hero-subtitle {
