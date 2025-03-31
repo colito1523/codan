@@ -61,7 +61,7 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nutrition-images {
+.nutrition-image {
   width: 100%;
   height: auto;
   object-fit: cover;
