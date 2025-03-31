@@ -85,12 +85,14 @@ export default function TrainingPlans() {
 
         <div className="plans-container">
           {plans.map((plan) => (
-            <div
-              key={plan.id}
-              className={`vertical-plan-card ${plan.featured ? "featured-plan" : ""} ${hoveredPlan === plan.id ? "hovered" : ""}`}
-              onMouseEnter={() => setHoveredPlan(plan.id)}
-              onMouseLeave={() => setHoveredPlan(null)}
-            >
+          <div
+          key={plan.id}
+          className={`vertical-plan-card ${plan.featured ? "featured-plan" : ""} ${hoveredPlan === plan.id ? "hovered" : ""}`}
+          onMouseEnter={() => setHoveredPlan(plan.id)}
+          onMouseLeave={() => setHoveredPlan(null)}
+          style={{ '--image-url': `url(${plan.image})` }}
+        >
+        
              <div className="plan-header">
   <h3 className="plan-title-inline">
     <span className="plan-title">{plan.title}</span>{" "}
