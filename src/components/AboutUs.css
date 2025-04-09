@@ -1,19 +1,42 @@
 .about-us {
-  background-color: #000;
-  padding: 60px 0;
+  background-color: #0a0a0a;
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-us::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 59, 59, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .about-content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 40px;
 }
 
 .about-images {
   flex: 1;
   min-width: 300px;
-  margin-right: 40px;
   position: relative;
+  height: 600px;
 }
 
 .trainer-wrapper {
@@ -25,26 +48,29 @@
 .trainer-card {
   position: absolute;
   width: 45%;
-  transition: transform 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .trainer-card.alejandro {
   top: 0;
   left: 0;
   z-index: 2;
+  transform: rotate(-3deg);
 }
 
 .trainer-card.valentino {
   top: 25%;
   left: 50%;
   z-index: 1;
+  transform: rotate(3deg);
 }
 
 .image-container {
   position: relative;
   overflow: hidden;
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #222;
+  transition: all 0.4s ease;
 }
 
 .trainer-image {
@@ -52,41 +78,59 @@
   height: auto;
   object-fit: cover;
   display: block;
-  filter: grayscale(100%);
-  transition: filter 0.5s ease;
+  filter: grayscale(100%) contrast(1.1);
+  transition: all 0.6s ease;
 }
 
 /* Efecto hover */
 .trainer-card:hover .image-container {
   border-color: #ff3b3b;
-  box-shadow: 0 0 20px rgba(255, 59, 59, 0.7);
+  box-shadow: 0 0 25px rgba(255, 59, 59, 0.6);
 }
 
 .trainer-card:hover .trainer-image {
-  filter: grayscale(0%);
-}
-
-.trainer-card:hover {
+  filter: grayscale(0%) contrast(1.1);
   transform: scale(1.05);
 }
 
+.trainer-card:hover {
+  transform: scale(1.05) rotate(0);
+}
+
 .trainer-name {
-  background-color: #000;
+  background-color: #111;
   border: 1px solid #333;
   color: #fff;
-  padding: 12px;
+  padding: 15px;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
   margin-top: -4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.trainer-name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff3b3b;
+  transition: width 0.3s ease;
 }
 
 .trainer-card:hover .trainer-name {
-  background-color: #ff3b3b;
-  color: #fff;
-  box-shadow: 0 0 20px rgba(255, 59, 59, 0.8);
+  background-color: #1a1a1a;
+  color: #ff3b3b;
+}
+
+.trainer-card:hover .trainer-name::after {
+  width: 100%;
 }
 
 .about-text {
@@ -102,73 +146,87 @@
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  margin-bottom: 30px;
-  height: 80px;
-  background-color: #000;
+  margin-bottom: 40px;
+  height: 90px;
+  background-color: transparent;
   padding: 10px 15px;
 }
-
 
 .title-background {
   position: absolute;
-  font-size: 100px;
+  font-size: clamp(70px, 12vw, 120px);
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 1px #ff3b3b7b;
-    font-family: 'Franklin Gothic Medium';
+  -webkit-text-stroke: 1px rgba(255, 59, 59, 0.3);
+  font-family: "Franklin Gothic Medium", sans-serif;
   z-index: 1;
-  top: -40px;
-  left: -10px;
-  letter-spacing: 2px;
-}
-.title-container-with-bg {
-  position: relative;
-  margin-bottom: 30px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  background-color: #000;
-  padding: 10px 15px;
+  top: -50px;
+  left: -15px;
+  letter-spacing: 3px;
+  white-space: nowrap;
+  opacity: 0.7;
 }
 
 .title-content {
   display: flex;
-  align-items: center; /* ya lo tenés, centra verticalmente */
-  justify-content: start; /* centra horizontalmente */
-  z-index: 1;
-
+  align-items: center;
+  justify-content: start;
+  z-index: 2;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 .title {
   color: #fff;
-  font-size: 35px;
-  font-family: 'Anton', sans-serif;
+  font-size: clamp(28px, 5vw, 40px);
+  font-family: "Anton", sans-serif;
   letter-spacing: 4px;
   font-weight: bold;
-  margin-right: 8px;
+  margin-right: 12px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .accent-title {
   color: #ff3b3b;
-  font-size: 35px;
-  font-family: 'Anton', sans-serif;
+  font-size: clamp(28px, 5vw, 40px);
+  font-family: "Anton", sans-serif;
   letter-spacing: 4px;
- 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.accent-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #ff3b3b;
 }
 
 .paragraph {
-  color: #ccc;
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  font-family: 'Inter', sans-serif;
+  color: #e0e0e0;
+  font-size: clamp(14px, 3vw, 16px);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  position: relative;
+  padding-left: 0;
+  transition: all 0.3s ease;
 }
+
+.paragraph:hover {
+  transform: translateX(5px);
+}
+
 .name-highlight {
   color: #ff3b3b;
   font-weight: bold;
   position: relative;
   padding-left: 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .name-highlight::before {
@@ -180,6 +238,12 @@
   line-height: 1.8;
 }
 
+@media (max-width: 1200px) {
+  .about-images {
+    height: 550px;
+  }
+}
+
 @media (max-width: 992px) {
   .about-content {
     flex-direction: column;
@@ -187,54 +251,174 @@
 
   .about-images {
     margin-right: 0;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     height: 500px;
+    max-width: 600px;
+    margin: 0 auto 60px;
+  }
+
+  .trainer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .trainer-card {
+    position: relative;
+    width: 48%;
+    top: auto;
+    left: auto;
+    transform: rotate(0);
+  }
+
+  .trainer-card.alejandro {
+    margin-right: 2%;
+  }
+
+  .trainer-card.valentino {
+    margin-left: 2%;
   }
 
   .title-background {
-    font-size: 80px;
     top: -30px;
   }
 }
 
 @media (max-width: 768px) {
+  .about-us {
+    padding: 60px 0;
+  }
+
   .about-images {
-    height: 400px;
+    height: auto;
+    margin-bottom: 40px;
   }
 
-  .trainer-card.alejandro {
-    width: 50%;
-  }
-
-  .trainer-card.valentino {
-    width: 50%;
-    top: 35%;
-    left: 45%;
-  }
-
-  .title-background {
-    font-size: 60px;
-    top: -20px;
-  }
-
-  .title,
-  .accent-title {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 576px) {
-  .about-images {
-    height: 350px;
+  .trainer-wrapper {
+    flex-direction: row;
   }
 
   .trainer-card.alejandro,
   .trainer-card.valentino {
-    width: 70%;
+    width: 48%;
   }
 
-  .trainer-card.valentino {
-    left: 25%;
+  .title-background {
+    top: -20px;
+  }
+
+  .title-container-with-bg {
+    height: 80px;
+    margin-bottom: 30px;
   }
 }
 
+@media (max-width: 576px) {
+  .about-us {
+    padding: 40px 0;
+  }
+
+  .about-images {
+    height: auto;
+  }
+
+  .trainer-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .trainer-card.alejandro,
+  .trainer-card.valentino {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .title-container-with-bg {
+    height: auto;
+    min-height: 70px;
+    padding: 10px;
+  }
+
+  .title-background {
+    top: -15px;
+    left: -5px;
+  }
+
+  .title-content {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .title,
+  .accent-title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-images {
+    height: 320px;
+  }
+
+  .trainer-card.alejandro {
+    width: 70%;
+    left: 0;
+  }
+
+  .trainer-card.valentino {
+    width: 70%;
+    top: 25%;
+    left: 25%;
+  }
+
+  .name-highlight {
+    padding-left: 14px;
+  }
+
+  .name-highlight::before {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .about-images {
+    height: 280px;
+  }
+
+  .trainer-card.alejandro,
+  .trainer-card.valentino {
+    width: 80%;
+  }
+
+  .trainer-card.valentino {
+    left: 15%;
+  }
+
+  .trainer-name {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Mejora para dispositivos táctiles */
+@media (hover: none) {
+  .trainer-card:active .image-container {
+    border-color: #ff3b3b;
+    box-shadow: 0 0 20px rgba(255, 59, 59, 0.7);
+  }
+
+  .trainer-card:active .trainer-image {
+    filter: grayscale(0%);
+  }
+
+  .trainer-card:active .trainer-name {
+    background-color: #1a1a1a;
+    color: #ff3b3b;
+  }
+  
+  .trainer-card:active .trainer-name::after {
+    width: 100%;
+  }
+}

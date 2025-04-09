@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import "./Hero.css"
+import "./hero.css"
 import sliderImage from "../assets/Slider.jpg" // ajustá el path según la estructura
 
 const Hero = () => {
@@ -17,6 +17,7 @@ const Hero = () => {
       description:
         "Mira nuestros planes de entrenamiento y métodos disponibles para ayudarte a alcanzar tus objetivos de forma efectiva y sostenible.",
       buttonText: "VER MÁS",
+      targetId: "routines", // 🔁 Scroll hacia Routines
     },
     {
       image: sliderImage,
@@ -27,6 +28,7 @@ const Hero = () => {
       description:
         "Descubre nuestros planes nutricionales personalizados diseñados para perder peso de manera efectiva o ganar masa muscular de forma saludable",
       buttonText: "VER MÁS",
+      targetId: "nutrition-plans", // 🔁 Scroll hacia NutritionPlans
     },
     {
       image: sliderImage,
@@ -37,6 +39,7 @@ const Hero = () => {
       description:
         "Nuestra asesoría especializada en entrenamiento, diseñada para ayudarte a perder peso y ganar masa muscular. Con planes adaptados a tus necesidades y un enfoque en ejercicios efectivos",
       buttonText: "VER MÁS",
+      targetId: "pricing", // 🔁 Scroll hacia Pricing
     },
   ]
 
@@ -71,16 +74,25 @@ const Hero = () => {
             style={{ backgroundImage: `url(${slide.image})` }}
           >
             <div className="hero-overlay">
-                <div className="hero-content">
-                  <h2 className="hero-title">
-                    {slide.title1} <span className="accent">{slide.titleAccent1}</span>
-                  </h2>
-                  <h2 className="hero-title">
-                    {slide.title2} <span className="accent">{slide.titleAccent2}</span>
-                  </h2>
-                  <p className="hero-subtitle">{slide.description}</p>
-                  <button className="hero-button">{slide.buttonText}</button>
-                </div>
+              <div className="hero-content">
+                <h2 className="hero-title">
+                  {slide.title1} <span className="accent">{slide.titleAccent1}</span>
+                </h2>
+                <h2 className="hero-title">
+                  {slide.title2} <span className="accent">{slide.titleAccent2}</span>
+                </h2>
+                <p className="hero-subtitle">{slide.description}</p>
+                <button
+  className="hero-button"
+  onClick={() => {
+    const target = document.getElementById(slide.targetId)
+    if (target) target.scrollIntoView({ behavior: "smooth" })
+  }}
+>
+  {slide.buttonText}
+</button>
+
+              </div>
             </div>
           </div>
         ))}

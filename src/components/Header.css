@@ -1,10 +1,17 @@
 .header {
-  background-color: #000;
+  background-color: rgba(10, 10, 10, 0.95);
   padding: 15px 0;
   border-bottom: 1px solid #333;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.header:hover {
+  background-color: rgba(15, 15, 15, 0.98);
 }
 
 .header-container {
@@ -13,22 +20,56 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
+
 .menu-icon-react {
   color: #fff;
   font-size: 24px;
+  transition: color 0.3s ease;
 }
-
 
 /* IZQUIERDA */
 .logo-container {
   flex: 1;
 }
 
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff3b3b;
+  transition: width 0.3s ease;
+}
+
+.logo-link:hover::after {
+  width: 100%;
+}
+
 .logo {
   color: #fff;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.logo-link:hover .logo {
+  color: #ff3b3b;
 }
 
 /* CENTRO */
@@ -47,6 +88,7 @@
 
 .nav-item {
   margin-left: 30px;
+  position: relative;
 }
 
 .nav-link {
@@ -54,23 +96,49 @@
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  padding: 8px 0;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff3b3b;
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover {
   color: #ff3b3b;
 }
 
-
+.nav-link:hover::after {
+  width: 100%;
+}
 
 .icon-link {
   color: #fff;
   font-size: 18px;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .icon-link:hover {
   color: #ff3b3b;
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
 }
 
 /* BOTÓN MENÚ HAMBURGUESA */
@@ -80,6 +148,18 @@
   border: none;
   cursor: pointer;
   z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.menu-button:hover .menu-icon-react {
+  color: #ff3b3b;
 }
 
 .menu-icon {
@@ -129,6 +209,7 @@
   gap: 20px;
   padding: 15px 0;
 }
+
 /* ICONOS EN DESKTOP */
 .icons-container {
   display: flex;
@@ -136,11 +217,6 @@
   align-items: center;
   justify-content: flex-end;
   flex: 1;
-}
-
-.logo-link {
-  text-decoration: none;
-  color: inherit;
 }
 
 @media (max-width: 768px) {
@@ -154,8 +230,9 @@
   }
 
   .icons-container {
-    display: none; /* Se ocultan en mobile si mantenés este contenedor afuera */
+    display: none;
   }
+  
   .header-container {
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -170,11 +247,11 @@
   }
 
   .menu-button {
-    display: block;
-    position: relative;
-    flex: 1;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex: 0;
   }
 
   .nav-container {
@@ -182,14 +259,16 @@
     top: 60px;
     left: 0;
     right: 0;
-    background-color: #000;
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid #333;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 5;
     flex: 1 1 100%;
     justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 
   .nav-open {
@@ -200,6 +279,7 @@
     flex-direction: column;
     padding: 0;
     align-items: center;
+    width: 100%;
   }
 
   .nav-item {
@@ -213,5 +293,19 @@
     padding: 15px 20px;
     width: 100%;
     text-align: center;
+  }
+  
+  .nav-link::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+  
+  .header {
+    padding: 10px 0;
   }
 }
