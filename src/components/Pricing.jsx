@@ -1,123 +1,109 @@
 "use client"
 
-import { useState } from "react"
-import "./Pricing.css"
+import { useState, useEffect } from "react"
+import { ArrowRight } from "lucide-react"
+import "./pricing.css"
 
-import rutine1 from "../assets/rutine1.jpg"
-import rutine2 from "../assets/rutine2.jpg"
-import rutine3 from "../assets/rutine3.jpg"
+export default function CinematicPricingConcept() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
 
-export default function TrainingPlans() {
-  const [hoveredPlan, setHoveredPlan] = useState(null)
-
-  const plans = [
+  const highlights = [
     {
-      id: 1,
-      title: "1 MES",
-      subtitle: "ONLINE MENSUAL",
-      features: [
-        "Plan de entrenamiento.",
-        "Plan nutricional según objetivo.",
-        "Asesoramiento de suplementación deportiva.",
-        "Contacto directo a través de Whatsapp",
-        "Videos explicativos de todos los ejercicios.",
-        "Estrategias para descender el porcentaje de grasa.",
-        "Chequeos cada 7 días",
-        "7 Ebooks escritos por mí de REGALO",
-        "Guía de alimentación SIN calorías necesarias",
-      ],
-      price: "$15.000",
-      
-      image: rutine1,
+      title: "ENTRENAMIENTO",
+      description: "Plan personalizado adaptado a tu nivel y objetivos específicos",
+      color: "#ff3b3b",
     },
     {
-      id: 2,
-      title: "2 MESES",
-      subtitle: "ONLINE MENSUAL",
-      features: [
-        "Plan de entrenamiento.",
-        "Plan nutricional según objetivo.",
-        "Asesoramiento de suplementación deportiva.",
-        "Contacto directo a través de Whatsapp",
-        "Videos explicativos de todos los ejercicios.",
-        "Estrategias para descender el porcentaje de grasa.",
-        "Chequeos cada 7 días",
-        "7 Ebooks escritos por mí de REGALO",
-        "Guía de alimentación SIN calorías necesarias",
-      ],
-      price: "$22.000",
-      image: rutine2,
-      featured: true,
+      title: "NUTRICIÓN",
+      description: "Dieta personalizada para maximizar resultados y rendimiento",
+      color: "#ff5e3b",
     },
     {
-      id: 3,
-      title: "3 MESES",
-      subtitle: "ONLINE MENSUAL",
-      features: [
-        "Plan de entrenamiento.",
-        "Plan nutricional según objetivo.",
-        "Asesoramiento de suplementación deportiva.",
-        "Contacto directo a través de Whatsapp",
-        "Videos explicativos de todos los ejercicios.",
-        "Estrategias para descender el porcentaje de grasa.",
-        "Chequeos cada 7 días",
-        "7 Ebooks escritos por mí de REGALO",
-        "Guía de alimentación SIN calorías necesarias",
-      ],
-      price: "$20.000",
-      image: rutine3,
+      title: "SEGUIMIENTO",
+      description: "Contacto directo y chequeos semanales para asegurar tu progreso",
+      color: "#ff3b6b",
     },
   ]
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true)
+      setTimeout(() => {
+        setActiveIndex((prev) => (prev + 1) % highlights.length)
+        setIsAnimating(false)
+      }, 500)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [highlights.length])
+
   return (
-    <section className="section pricing" id="pricing">
-      <div className="container">
-        <div className="title-container center">
-          <h2 className="title">
-            ASESORAMIENTO <span className="accent-title">EN CONJUNTO</span>
-          </h2>
+    <section className="cinematic-pricing">
+      <div className="cinematic-background"></div>
+
+      <div className="cinematic-container">
+        <div className="cinematic-content">
+          <div className="cinematic-header">
+            <h2 className="cinematic-title">
+              TRANSFORMA TU FÍSICO
+              <span className="title-highlight"> HOY</span>
+            </h2>
+
+            <div className="plan-badge">
+              <div className="badge-content">
+                <span className="badge-title">3 MESES + 1</span>
+                <span className="badge-subtitle">ONLINE MENSUAL</span>
+              </div>
+            </div>
+          </div>
+
+         
+
+          <div className="highlights-container">
+            <div className="highlights-track" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+              {highlights.map((highlight, index) => (
+                <div
+                  key={index}
+                  className={`highlight-item ${activeIndex === index ? "active" : ""} ${isAnimating ? "animating" : ""}`}
+                  style={{ "--highlight-color": highlight.color }}
+
+                >
+                  <h3 className="highlight-title">{highlight.title}</h3>
+                  <p className="highlight-description">{highlight.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="highlight-indicators">
+            {highlights.map((highlight, index) => (
+  <button
+    key={index}
+    className={`indicator ${activeIndex === index ? "active" : ""}`}
+    onClick={() => setActiveIndex(index)}
+    style={{ "--highlight-color": highlight.color }}
+  ></button>
+))}
+
+            </div>
+          </div>
+          <div className="cinematic-cta">
+            <button className="cinematic-button">
+              <span className="button-text">COMENZAR TRANSFORMACIÓN</span>
+              <ArrowRight className="button-icon" size={20} />
+              <div className="button-glow"></div>
+            </button>
+          </div>
         </div>
 
-        <p className="pricing-description">
-          En nuestro Asesoría te brindamos todas las herramientas para que puedas alcanzar tu objetivo. Desde una Rutina
-          de alimentación personalizada hasta un seguimiento constante para resolver todas tus dudas.
-        </p>
-
-        <div className="plans-container">
-          {plans.map((plan) => (
-          <div
-          key={plan.id}
-          className={`vertical-plan-card ${plan.featured ? "featured-plan" : ""} ${hoveredPlan === plan.id ? "hovered" : ""}`}
-          onMouseEnter={() => setHoveredPlan(plan.id)}
-          onMouseLeave={() => setHoveredPlan(null)}
-          style={{ '--image-url': `url(${plan.image})` }}
-        >
-        
-             <div className="plan-header">
-  <h3 className="plan-title-inline">
-    <span className="plan-title">{plan.title}</span>{" "}
-    <span className="plan-subtitle">{plan.subtitle}</span>
-  </h3>
-</div>
-
-
-              <div className="plan-features-list">
-                {plan.features.map((feature, index) => (
-                  <div key={index} className="plan-feature-item">
-                    <span className="feature-bullet">•</span>
-                    <span className="feature-text">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="plan-price">{plan.price}</div>
-
-              <button className="plan-action-button">VER MÁS INFORMACIÓN</button>
-            </div>
-          ))}
+        <div className="cinematic-visual">
+          <div className="visual-container">
+            <div className="before-after-label">ANTES</div>
+            <div className="after-image"></div>
+            <div className="before-after-label after-label">DESPUÉS</div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
-

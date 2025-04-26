@@ -283,22 +283,22 @@
     .checkout-page {
       padding: 60px 0;
     }
-    
+  
     .checkout-page h1 {
       font-size: 28px;
       margin-bottom: 30px;
     }
-    
+  
     .form-row {
       flex-direction: column;
       gap: 10px;
     }
-    
+  
     .payment-methods {
       flex-direction: column;
       gap: 10px;
     }
-    
+  
     .payment-method {
       width: 100%;
     }
@@ -308,16 +308,16 @@
     .checkout-page {
       padding: 40px 0;
     }
-    
+  
     .checkout-page h1 {
       font-size: 24px;
       margin-bottom: 25px;
     }
-    
+  
     .checkout-section h2 {
       font-size: 18px;
     }
-    
+  
     .form-group input[type="text"],
     .form-group input[type="email"],
     .form-group input[type="tel"],
@@ -325,7 +325,7 @@
       padding: 10px 12px;
       font-size: 14px;
     }
-    
+  
     .checkout-submit-button {
       font-size: 14px;
       padding: 12px;

@@ -249,12 +249,18 @@
     flex-direction: column;
   }
 
+  .about-text {
+    order: 1; /* Esto hace que el texto aparezca primero */
+  }
+
   .about-images {
+    order: 2; /* Esto hace que las imágenes aparezcan después */
     margin-right: 0;
-    margin-bottom: 60px;
+    margin-bottom: 200px; /* Añadido margen inferior para separar de la siguiente sección */
     height: 500px;
     max-width: 600px;
-    margin: 0 auto 60px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .trainer-wrapper {
@@ -292,7 +298,8 @@
 
   .about-images {
     height: auto;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 80px; /* Aumentado el margen inferior para pantallas más pequeñas */
   }
 
   .trainer-wrapper {
@@ -316,11 +323,12 @@
 
 @media (max-width: 576px) {
   .about-us {
-    padding: 40px 0;
+    padding: 40px 0 80px; /* Añadido padding inferior para más espacio */
   }
 
   .about-images {
     height: auto;
+    margin-bottom: 40px;
   }
 
   .trainer-wrapper {
@@ -417,7 +425,7 @@
     background-color: #1a1a1a;
     color: #ff3b3b;
   }
-  
+
   .trainer-card:active .trainer-name::after {
     width: 100%;
   }

@@ -83,7 +83,7 @@ const Hero = () => {
                 </h2>
                 <p className="hero-subtitle">{slide.description}</p>
                 <button
-  className="hero-button"
+  className="action-button"
   onClick={() => {
     const target = document.getElementById(slide.targetId)
     if (target) target.scrollIntoView({ behavior: "smooth" })

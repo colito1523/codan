@@ -1,6 +1,4 @@
 "use client"
-
-import React from "react"
 import { useNavigate } from "react-router-dom"
 import { FiX } from "react-icons/fi"
 import { FaTrash } from "react-icons/fa"
@@ -19,7 +17,7 @@ const CartModal = ({ isOpen, onClose }) => {
   }
 
   const formatPrice = (price) => {
-    return `$${price.toLocaleString('es-AR')}`
+    return `$${price.toLocaleString("es-AR")}`
   }
 
   return (
@@ -40,12 +38,16 @@ const CartModal = ({ isOpen, onClose }) => {
           <>
             {cartItems.map((item) => (
               <div className="cart-item" key={item.id}>
-                <img src={item.image || "/placeholder.svg?height=180&width=400"} alt={item.title} className="cart-img" />
+                <img
+                  src={item.image || "/placeholder.svg?height=180&width=400"}
+                  alt={item.title}
+                  className="cart-img"
+                />
                 <div className="cart-details">
                   <span className="cart-title">{item.title}</span>
                   <span className="cart-price">{formatPrice(item.price)}</span>
-                  <button 
-                    className="trash-button" 
+                  <button
+                    className="trash-button"
                     onClick={() => removeFromCart(item.id)}
                     aria-label="Eliminar del carrito"
                   >

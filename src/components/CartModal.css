@@ -69,6 +69,17 @@
   transform: rotate(90deg);
 }
 
+.empty-cart {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  font-size: 16px;
+  text-align: center;
+  padding: 40px 0;
+}
+
 .cart-item {
   margin: 20px 0;
   border: 1px solid #333;
@@ -109,12 +120,14 @@
   font-size: 16px;
   color: #fff;
   letter-spacing: 1px;
+  flex: 1;
 }
 
 .cart-price {
   font-weight: bold;
   font-size: 18px;
   color: #ff3b3b;
+  margin: 0 15px;
 }
 
 .trash-button {

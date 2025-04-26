@@ -130,7 +130,7 @@ const NutritionPlans = () => {
               </p>
             </div>
 
-            <button className="nutrition-button">VER PLAN NUTRICIONAL</button>
+            <button className="action-button">VER PLAN NUTRICIONAL</button>
           </div>
         </div>
       </div>

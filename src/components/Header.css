@@ -133,12 +133,35 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .icon-link:hover {
   color: #ff3b3b;
   background-color: rgba(255, 255, 255, 0.05);
   transform: translateY(-2px);
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff3b3b;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* BOTÓN MENÚ HAMBURGUESA */
@@ -232,7 +255,7 @@
   .icons-container {
     display: none;
   }
-  
+
   .header-container {
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -294,7 +317,7 @@
     width: 100%;
     text-align: center;
   }
-  
+
   .nav-link::after {
     display: none;
   }
@@ -304,7 +327,7 @@
   .logo {
     font-size: 20px;
   }
-  
+
   .header {
     padding: 10px 0;
   }
