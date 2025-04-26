@@ -69,10 +69,10 @@
 .hero-title {
   color: #fff;
   font-size: clamp(28px, 5vw, 36px);
-  font-weight: bold;
   margin-bottom: 15px;
   line-height: 1.2;
-  font-family: "Anton", sans-serif;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 3px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
@@ -81,7 +81,8 @@
 .hero-title .accent {
   color: #ff3b3b;
   line-height: 1.2;
-  font-family: "Anton", sans-serif;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 3px;
   position: relative;
   display: inline-block;
@@ -94,7 +95,6 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #ff3b3b;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s ease-out 0.3s;

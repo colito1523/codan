@@ -31,9 +31,9 @@
 
 .nutrition-title {
   color: #ffffff;
-  font-weight: bold;
   font-size: 36px;
-  font-family: "Anton", sans-serif;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 3px;
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -41,7 +41,8 @@
 
 .nutrition-accent-title {
   color: #ff3b3b;
-  font-family: "Anton", sans-serif;
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 3px;
   position: relative;
   display: inline-block;
