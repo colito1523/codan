@@ -2,25 +2,27 @@
 
 import { useState, useEffect } from "react"
 import "./hero.css"
-import sliderImage from "../assets/Slider.jpg" // ajustá el path según la estructura
+import sliderImage1 from "../assets/slider1.png" // ajustá el path según la estructura
+import sliderImage2 from "../assets/slider2.png" // ajustá el path según la estructura
+import sliderImage3 from "../assets/slider3.png" // ajustá el path según la estructura
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const slides = [
     {
-      image: sliderImage,
-      title1: "TRANSFORMA",
-      titleAccent1: "TU CUERPO",
-      title2: "CON LOS",
-      titleAccent2: "PLANES DE ENTRENAMIENTO",
+      image: sliderImage1,
+      title1: "",
+      titleAccent1: "",
+      title2: "SERVICIOS DE RUTINAS",
+      titleAccent2: "PERSONALIZADAS ",
       description:
-        "Mira nuestros planes de entrenamiento y métodos disponibles para ayudarte a alcanzar tus objetivos de forma efectiva y sostenible.",
+        "Rutina personalizada a tu objetivo personal-físico que se adapte a tus metas en el gimnasio ya sea, recomposición corporal, ganancia de masa muscular, pérdida de grasa, mayor flexibilidad, etc.  Analizamos tus caso mediante una encuesta y armamos el plan de trabajo 100% para ti",
       buttonText: "VER MÁS",
       targetId: "routines", // 🔁 Scroll hacia Routines
     },
     {
-      image: sliderImage,
+      image: sliderImage2,
       title1: "PERDE",
       titleAccent1: "GRASA",
       title2: "GANA",
@@ -31,13 +33,13 @@ const Hero = () => {
       targetId: "nutrition-plans", // 🔁 Scroll hacia NutritionPlans
     },
     {
-      image: sliderImage,
-      title1: "ALCANZA",
-      titleAccent1: "TUS OBJETIVOS",
-      title2: "DE FORMA",
-      titleAccent2: "PERSONALIZADO",
+      image: sliderImage3,
+      title1: "",
+      titleAccent1: "",
+      title2: "SERVICIO",
+      titleAccent2: "ASESORAMIENTO",
       description:
-        "Nuestra asesoría especializada en entrenamiento, diseñada para ayudarte a perder peso y ganar masa muscular. Con planes adaptados a tus necesidades y un enfoque en ejercicios efectivos",
+        "En nuestra Asesoría te brindaremos todas las herramientas para que puedas alcanzar tus metas físicas y personales. Contando con un plan 2 a 1 con seguimiento y ajustes específicos en base tu objetivo y estilo de vida.",
       buttonText: "VER MÁS",
       targetId: "pricing", // 🔁 Scroll hacia Pricing
     },

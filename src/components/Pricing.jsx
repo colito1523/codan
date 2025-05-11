@@ -11,18 +11,23 @@ export default function CinematicPricingConcept() {
   const highlights = [
     {
       title: "ENTRENAMIENTO",
-      description: "Plan personalizado adaptado a tu nivel y objetivos específicos",
+      description: "Plan personalizado adaptado a tu nivel y objetivos específicos.",
       color: "#ff3b3b",
     },
     {
       title: "NUTRICIÓN",
-      description: "Dieta personalizada para maximizar resultados y rendimiento",
-      color: "#ff5e3b",
+      description: "Dieta personalizada para maximizar resultados y rendimiento.",
+      color: "#7cff3b",
     },
     {
       title: "SEGUIMIENTO",
-      description: "Contacto directo y chequeos semanales para asegurar tu progreso",
-      color: "#ff3b6b",
+      description: "Contacto directo y chequeos semanales para asegurar tu progreso.",
+      color: "#ff3b3b",
+    },
+    {
+      title: "MENTALIDAD",
+      description: "Guia y ayuda diaria en tu mentalidad y habitos del día a día.",
+      color: "#e03289",
     },
   ]
 
@@ -39,7 +44,7 @@ export default function CinematicPricingConcept() {
   }, [highlights.length])
 
   return (
-    <section className="cinematic-pricing">
+    <section className="cinematic-pricing" id="advice">
       <div className="cinematic-background"></div>
 
       <div className="cinematic-container">
@@ -89,7 +94,7 @@ export default function CinematicPricingConcept() {
           </div>
           <div className="cinematic-cta">
             <button className="cinematic-button">
-              <span className="button-text">COMENZAR TRANSFORMACIÓN</span>
+              <span className="button-text">ASESORIA PARA ATLETAS EXCLUSIVOS</span>
               <ArrowRight className="button-icon" size={20} />
               <div className="button-glow"></div>
             </button>
@@ -98,6 +103,7 @@ export default function CinematicPricingConcept() {
 
         <div className="cinematic-visual">
           <div className="visual-container">
+            <div className="before-image"></div>
             <div className="before-after-label">ANTES</div>
             <div className="after-image"></div>
             <div className="before-after-label after-label">DESPUÉS</div>

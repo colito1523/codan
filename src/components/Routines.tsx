@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { ArrowRight, ChevronDown, CheckCircle, Play } from "lucide-react"
+import { ArrowRight, CheckCircle } from "lucide-react"
 import "./Routines.css"
+import rutinaImg from "../assets/rutinas.jpeg"
 
 export default function PremiumRoutineShowcase() {
   const [activeTab, setActiveTab] = useState("descripcion")
@@ -26,14 +27,12 @@ export default function PremiumRoutineShowcase() {
             <div className="showcase-image-container">
               <div className="image-overlay"></div>
               <img
-                src="/placeholder.svg?height=600&width=400"
+                src={rutinaImg || "/placeholder.svg"}
                 alt="Rutinas personalizadas"
                 className="showcase-image"
               />
               <div className="premium-badge">PREMIUM</div>
-              <button className="play-button">
-                <Play size={24} fill="#fff" />
-              </button>
+             
             </div>
 
             <div className="showcase-content">
@@ -71,8 +70,7 @@ export default function PremiumRoutineShowcase() {
                       condición física actual, objetivos específicos y preferencias de entrenamiento.
                     </p>
                     <p>
-                      Cada plan es creado por profesionales con años de experiencia en el campo del fitness y la
-                      nutrición, asegurando que cada ejercicio y recomendación esté respaldada por ciencia y resultados
+                      Cada plan es creado asegurando que cada ejercicio y recomendación esté respaldada por ciencia y resultados
                       comprobados.
                     </p>
                   </div>
@@ -122,8 +120,8 @@ export default function PremiumRoutineShowcase() {
                           <div className="icon-diamond"></div>
                         </div>
                         <div className="include-details">
-                          <h4>Guía Nutricional</h4>
-                          <p>Recomendaciones alimenticias adaptadas a tus objetivos</p>
+                          <h4>Cuaderno de Entrenamiento</h4>
+                          <p>Planilla para que anotes tus entrenamientos</p>
                         </div>
                       </div>
                       <div className="include-item">
@@ -135,48 +133,16 @@ export default function PremiumRoutineShowcase() {
                           <p>Tutoriales de cada ejercicio con técnica correcta</p>
                         </div>
                       </div>
-                      <div className="include-item">
-                        <div className="include-icon">
-                          <div className="icon-diamond"></div>
-                        </div>
-                        <div className="include-details">
-                          <h4>Seguimiento Semanal</h4>
-                          <p>Ajustes periódicos según tu evolución y feedback</p>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 )}
               </div>
 
-              <div className="testimonial-section">
-                <button
-                  className={`testimonial-toggle ${isExpanded ? "expanded" : ""}`}
-                  onClick={() => setIsExpanded(!isExpanded)}
-                >
-                  <span>Testimonios</span>
-                  <ChevronDown size={20} className={`toggle-icon ${isExpanded ? "rotated" : ""}`} />
-                </button>
-
-                <div className={`testimonial-content ${isExpanded ? "expanded" : ""}`}>
-                  <div className="testimonial">
-                    <div className="testimonial-quote">"</div>
-                    <p className="testimonial-text">
-                      El plan personalizado superó todas mis expectativas. En solo 3 meses logré transformar mi físico y
-                      aumentar significativamente mi fuerza. La atención y seguimiento fueron excepcionales.
-                    </p>
-                    <div className="testimonial-author">
-                      <span className="author-name">Carlos M.</span>
-                      <span className="author-info">34 años, 3 meses en el programa</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               <div className="action-area">
                 <div className="price-display">
-                  <span className="price-value">$20.000</span>
-                  <span className="price-period">INVERSIÓN TOTAL</span>
+                  <span className="price-value">U$D 26.000</span>
+                  <span className="price-period">Inversión</span>
                 </div>
 
                 <button className="action-button">

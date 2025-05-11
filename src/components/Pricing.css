@@ -205,6 +205,7 @@
   overflow: hidden;
 }
 
+
 .before-after-label {
   position: absolute;
   top: 20px;
@@ -224,6 +225,29 @@
   left: auto;
   right: 20px;
 }
+.before-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-image: url("../assets/Valentino_Antes.jpeg");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.after-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-image: url("../assets/Valentino_Despues.jpeg");
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
 
 .after-image {
   position: absolute;
@@ -231,17 +255,16 @@
   right: 0;
   width: 50%;
   height: 100%;
-  background-image: url("../assets/alejandro.jpg");
+  background-image: url("../assets/Valentino_Despues.jpeg");
   background-size: cover;
   background-position: center;
-  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .after-image::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+   left: -2.5px;
   width: 5px;
   height: 100%;
   background-color: #ff3b3b;

@@ -3,10 +3,8 @@
 import "./NutritionPlans.css"
 import nutrition1 from "../assets/nutrition1.jpg"
 import nutrition2 from "../assets/nutrition2.jpg"
-import nutrition3 from "../assets/alejandro.jpg"
-import nutrition4 from "../assets/asesoria1.jpg"
-import nutrition5 from "../assets/asesoria2.jpg"
-import nutrition6 from "../assets/asesoria3.jpg"
+import nutrition3 from "../assets/nutrition3.jpeg"
+import nutrition4 from "../assets/nutrition4.jpeg"
 
 import { useState, useEffect, useRef } from "react"
 
@@ -20,8 +18,8 @@ const NutritionPlans = () => {
   const [prevIndexOne, setPrevIndexOne] = useState(0)
   const [prevIndexTwo, setPrevIndexTwo] = useState(0)
 
-  const sliderOneImages = [nutrition1, nutrition3, nutrition5]
-  const sliderTwoImages = [nutrition2, nutrition4, nutrition6]
+  const sliderOneImages = [nutrition1,nutrition3]
+  const sliderTwoImages = [nutrition2,nutrition4]
 
   const timerOneRef = useRef(null)
   const timerTwoRef = useRef(null)
@@ -29,9 +27,9 @@ const NutritionPlans = () => {
   useEffect(() => {
     // First slider
     timerOneRef.current = setInterval(() => {
-      setPrevIndexOne(indexOne)
+      setPrevIndexOne((prev) => prev)
       setLoadedOne(false)
-
+  
       setTimeout(() => {
         setIndexOne((prev) => (prev + 1) % sliderOneImages.length)
         setTimeout(() => {
@@ -39,12 +37,12 @@ const NutritionPlans = () => {
         }, 100)
       }, 600)
     }, sliderInterval)
-
+  
     // Second slider with offset
     timerTwoRef.current = setInterval(() => {
-      setPrevIndexTwo(indexTwo)
+      setPrevIndexTwo((prev) => prev)
       setLoadedTwo(false)
-
+  
       setTimeout(() => {
         setIndexTwo((prev) => (prev + 1) % sliderTwoImages.length)
         setTimeout(() => {
@@ -52,12 +50,13 @@ const NutritionPlans = () => {
         }, 100)
       }, 600)
     }, sliderInterval + 1500) // Offset to avoid simultaneous transitions
-
+  
     return () => {
       clearInterval(timerOneRef.current)
       clearInterval(timerTwoRef.current)
     }
-  }, [indexOne, indexTwo, sliderOneImages.length, sliderTwoImages.length])
+  }, []) // <-- Acá, vacío, no pongas indexOne ni indexTwo
+  
 
   return (
     <section className="section nutrition-plans" id="nutrition">
@@ -113,20 +112,21 @@ const NutritionPlans = () => {
             <div className="nutrition-point">
               <div className="nutrition-bullet"></div>
               <p className="nutrition-paragraph">
-                En nuestra Asesoría te brindaremos todas las herramientas para que puedas alcanzar tu objetivo. Desde
-                una Rutina de entrenamiento personalizada (armada en base a un formulario que se te enviará para
-                conocerte bien), un cuaderno de entrenamiento. Hay 3 tipos de Asesorías: La Básica, la Estándar y la
-                Premium.
+                ¡Bienvenidos a un nuevo enfoque de alimentación! En nuestra sección de dietas personalizadas, rompemos con el mito de las "dietas estrictas" que tanto nos alejan de nuestros objetivos. Creemos firmemente que la clave para alcanzar y mantener un estilo de vida saludable está en la flexibilidad y en la adherencia de hábitos alimenticios que se adapten a ti y a tus necesidades.
               </p>
             </div>
 
             <div className="nutrition-point">
               <div className="nutrition-bullet"></div>
               <p className="nutrition-paragraph">
-                En nuestra Asesoría te brindaremos todas las herramientas para que puedas alcanzar tu objetivo. Desde
-                una Rutina de entrenamiento personalizada (armada en base a un formulario que se te enviará para
-                conocerte bien), un cuaderno de entrenamiento. Hay 3 tipos de Asesorías: La Básica, la Estándar y la
-                Premium.
+                La dieta personalizada está diseñadas para ser un complemento placentero a tu vida. Para que puedas disfrutar de tus comidas favoritas mientras sigues avanzando hacia tus metas de salud y objetivos deportivos.
+              </p>
+            </div>
+
+              <div className="nutrition-point">
+              <div className="nutrition-bullet"></div>
+              <p className="nutrition-paragraph">
+               Mejora tu relación con la comida y descubre una forma de alimentarte que se sienta natural y cómoda. Te invitamos a dar el primer paso hacia un cambio positivo y duradero, donde la dieta se convierta en un aliado y no una carga.
               </p>
             </div>
 

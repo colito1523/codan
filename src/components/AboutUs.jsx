@@ -1,8 +1,35 @@
+"use client"
+import { useState, useEffect } from "react"
 import "./aboutUs.css"
 import alejandroImg from "../assets/alejandro.jpg"
-import valentinoImg from "../assets/valentino.jpg"
+import valentinoImg from "../assets/Valentino_Antes.jpeg"
+// Assuming you'll add these new images to your assets folder
+import alejandroImg2 from "../assets/alejandro.jpg"
+import valentinoImg2 from "../assets/Valentino_Despues.jpeg"
 
 const AboutUs = () => {
+  const [activeAlejandroImage, setActiveAlejandroImage] = useState(0)
+  const [activeValentinoImage, setActiveValentinoImage] = useState(0)
+
+  const alejandroImages = [alejandroImg, alejandroImg2]
+  const valentinoImages = [valentinoImg, valentinoImg2]
+
+  // Auto transition effect
+  useEffect(() => {
+    const alejandroInterval = setInterval(() => {
+      setActiveAlejandroImage((prev) => (prev === 0 ? 1 : 0))
+    }, 5000)
+
+    const valentinoInterval = setInterval(() => {
+      setActiveValentinoImage((prev) => (prev === 0 ? 1 : 0))
+    }, 5000)
+
+    return () => {
+      clearInterval(alejandroInterval)
+      clearInterval(valentinoInterval)
+    }
+  }, [])
+
   return (
     <section className="section about-us" id="about-us">
       <div className="container">
@@ -11,14 +38,50 @@ const AboutUs = () => {
             <div className="trainer-wrapper">
               <div className="trainer-card alejandro">
                 <div className="image-container">
-                  <img src={alejandroImg || "/placeholder.svg"} alt="Entrenador Alejandro" className="trainer-image" />
+                  <div className="image-slider">
+                    {alejandroImages.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img || "/placeholder.svg"}
+                        alt={`Entrenador Alejandro ${index + 1}`}
+                        className={`trainer-image ${activeAlejandroImage === index ? "active" : ""}`}
+                      />
+                    ))}
+                  </div>
+                  <div className="image-dots">
+                    {alejandroImages.map((_, index) => (
+                      <span
+                        key={index}
+                        className={`dot ${activeAlejandroImage === index ? "active" : ""}`}
+                        onClick={() => setActiveAlejandroImage(index)}
+                      ></span>
+                    ))}
+                  </div>
                 </div>
                 <div className="trainer-name">ALEJANDRO</div>
               </div>
 
               <div className="trainer-card valentino">
                 <div className="image-container">
-                  <img src={valentinoImg || "/placeholder.svg"} alt="Entrenador Valentino" className="trainer-image" />
+                  <div className="image-slider">
+                    {valentinoImages.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img || "/placeholder.svg"}
+                        alt={`Entrenador Valentino ${index + 1}`}
+                        className={`trainer-image ${activeValentinoImage === index ? "active" : ""}`}
+                      />
+                    ))}
+                  </div>
+                  <div className="image-dots">
+                    {valentinoImages.map((_, index) => (
+                      <span
+                        key={index}
+                        className={`dot ${activeValentinoImage === index ? "active" : ""}`}
+                        onClick={() => setActiveValentinoImage(index)}
+                      ></span>
+                    ))}
+                  </div>
                 </div>
                 <div className="trainer-name">VALENTINO</div>
               </div>
@@ -35,28 +98,23 @@ const AboutUs = () => {
             </div>
 
             <p className="paragraph">
-              Somos dos apasionados instructores de fitness que se han convertido en referentes en el mundo del
-              bienestar y la salud.
+              ¡Hola! Somos Alejandro Daniele y Valentino Colombo, 2 expertos en la superación personal.
             </p>
             <p className="paragraph">
-              Con un enfoque integral, combinamos nuestra experiencia en entrenamiento físico.
+              Con más de 4 años de experiencia en gimnasio y toda una vida dedicada al deporte y la autosuperación,
+              hemos aprendido que la disciplina y la resiliencia son clave para lograr cualquier objetivo en la vida.
+              Ambos nos hemos transformado tanto física como mentalmente, y queremos darte las claves para conseguirlo
             </p>
             <p className="paragraph">
-              Con una sólida formación en nutrición, diseñamos planes de alimentación personalizados que se adaptan a
-              las necesidades y objetivos que tengas.
+              Nuestro objetivo es ayudarte a lograr dicha transformación física-mental para que puedas alcanzar tus
+              objetivos personales, por eso mismo creamos CoDanFit.
             </p>
             <p className="paragraph">
-              <span className="name-highlight">Alejandro</span> destaca por su enfoque profesional, siempre guiando a
-              sus alumnos a superar sus límites y encontrar su mejor versión.
+              Queremos compartir contigo lo que conlleva construir tu físico y mentalidad, y todo lo que hemos aprendido
+              a lo largo de los años para que puedas optimizar tu tiempo, dejar de procrastinar y alcanzar tus metas.
             </p>
             <p className="paragraph">
-              <span className="name-highlight">Valentino</span> se distingue por su meticulosidad en la planificación de
-              rutinas y dietas, asegurándose de que cada aspecto de la salud de sus clientes esté cubierto.
-            </p>
-            <p className="paragraph">
-              Juntos, crean un ambiente de camaradería y comprensión donde cada sesión de entrenamiento se convierte en
-              una oportunidad para crecer, tanto físicamente como en conocimientos sobre cómo llevar un estilo de vida
-              saludable.
+              Sabemos que, con las herramientas y la guía adecuada, tú también puedes alcanzar la vida de tus sueños
             </p>
           </div>
         </div>
@@ -66,4 +124,3 @@ const AboutUs = () => {
 }
 
 export default AboutUs
-

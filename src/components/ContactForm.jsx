@@ -124,8 +124,7 @@ const ContactForm = () => {
         </div>
 
         <p className="contact-description">
-          Responderemos a tu consulta lo antes posible. También puedes contactarnos a través de nuestras redes sociales
-          o por teléfono en horario de atención de lunes a viernes de 9 a 18 hs.
+          Responderemos a tu consulta lo antes posible. También puedes contactarnos a través de nuestras redes sociales.
         </p>
 
         <form className="contact-form" onSubmit={handleSubmit} ref={formRef}>

@@ -22,7 +22,7 @@ const Header = () => {
         {/* IZQUIERDA: Logo */}
         <div className="logo-container">
           <Link to="/" className="logo-link">
-            <h1 className="logo">CODAN</h1>
+            <h1 className="logo">CoDanFit</h1>
           </Link>
         </div>
 
@@ -30,7 +30,7 @@ const Header = () => {
         <nav className={`nav-container ${menuOpen ? "nav-open" : ""}`}>
           <ul className="nav-list">
             <li className="nav-item">
-              <a href="#about-us" className="nav-link" onClick={() => setMenuOpen(false)}>
+              <a href="#advice" className="nav-link" onClick={() => setMenuOpen(false)}>
                 ASESORAMIENTO
               </a>
             </li>

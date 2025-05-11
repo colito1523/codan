@@ -1,4 +1,6 @@
 import "./Footer.css"
+import { FaInstagram } from "react-icons/fa";
+
 
 const Footer = () => {
   return (
@@ -7,7 +9,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <h3 className="footer-title">FITNESS</h3>
-            <p className="footer-text">Transformando vidas a través del fitness y la nutrición desde 2015.</p>
+            <p className="footer-text">Transformando vidas a través del fitness, la alimentación y la mentalidad.</p>
           </div>
 
           <div className="footer-section">
@@ -44,28 +46,17 @@ const Footer = () => {
           <div className="footer-section">
             <h3 className="footer-title">CONTACTO</h3>
             <div className="contact-item">
-              <i className="contact-icon location"></i>
-              <span className="contact-text">Av. Ejemplo 1234, Ciudad</span>
-            </div>
-            <div className="contact-item">
-              <i className="contact-icon phone"></i>
-              <span className="contact-text">+54 11 1234-5678</span>
-            </div>
-            <div className="contact-item">
-              <i className="contact-icon email"></i>
-              <span className="contact-text">info@fitness.com</span>
-            </div>
+  <FaInstagram className="contact-icon" />
+  <span className="contact-text">@Valen_colombo02</span>
+</div>
+<div className="contact-item">
+  <FaInstagram className="contact-icon" />
+  <span className="contact-text">@Aleedaniele</span>
+</div>
+
           </div>
 
-          <div className="footer-section">
-            <h3 className="footer-title">SÍGUENOS</h3>
-            <div className="social-links">
-              <a href="#" className="social-icon instagram"></a>
-              <a href="#" className="social-icon facebook"></a>
-              <a href="#" className="social-icon twitter"></a>
-              <a href="#" className="social-icon youtube"></a>
-            </div>
-          </div>
+         
         </div>
 
         <div className="copyright">
