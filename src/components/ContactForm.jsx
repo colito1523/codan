@@ -30,91 +30,53 @@ const ContactForm = () => {
     setCaptchaVerified(!!value)
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    
-    // Verificar si el captcha ha sido completado
-    const token = await captchaRef.current.executeAsync()
-    captchaRef.current.reset()
-    
-    if (!token) {
-      setSubmitStatus({
-        success: false,
-        message: "Por favor, completa el captcha antes de enviar el formulario.",
-      })
-      return
-    }
-    
-    setCaptchaVerified(true)
+ const handleSubmit = async (e) => {
+  e.preventDefault()
 
-    try {
-      setLoading(true)
-      setSubmitStatus({ success: false, message: "" })
+  const token = await captchaRef.current.executeAsync()
+  captchaRef.current.reset()
 
-      // Configuración para EmailJS
-      const templateParams = {
-        to_email: "lucasmagan10@gmkail.com",
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-      }
-
-      const response = await fetch("http://localhost:3001/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      })
-      
-      if (response.ok) {
-        setSubmitStatus({
-          success: true,
-          message: "¡Gracias! Tu mensaje ha sido enviado correctamente.",
-        })
-      
-        setFormData({ name: "", email: "", message: "" })
-        captchaRef.current.reset()
-        setCaptchaVerified(false)
-      } else {
-        setSubmitStatus({
-          success: false,
-          message: "Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente.",
-        })
-      }
-      
-
-      if (response.status === 200) {
-        setSubmitStatus({
-          success: true,
-          message: "¡Gracias! Tu mensaje ha sido enviado correctamente."
-        })
-        
-        // Resetear el formulario
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        })
-        
-        // Resetear el captcha
-        captchaRef.current.reset()
-        setCaptchaVerified(false)
-      }
-    } catch (error) {
-      console.error("Error al enviar el formulario:", error)
-      setSubmitStatus({
-        success: false,
-        message: "Hubo un error al enviar tu mensaje. Por favor, intenta nuevamente."
-      })
-    } finally {
-      setLoading(false)
-    }
+  if (!token) {
+    setSubmitStatus({
+      success: false,
+      message: "Por favor, completa el captcha antes de enviar el formulario.",
+    })
+    return
   }
+
+  setCaptchaVerified(true)
+  setLoading(true)
+
+  emailjs.send(
+    'service_c7xmkxl', // 👈 ID de tu servicio (ya lo tenés)
+    'template_au7hdit',   // 👈 ID de la plantilla que creaste (copialo de EmailJS)
+    {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      url: window.location.href,
+    },
+    'VxC3Os0ExOSzeJoO4'     // 👈 Clave pública desde "Account > API Keys"
+  )
+  .then(() => {
+    setSubmitStatus({
+      success: true,
+      message: "¡Gracias! Tu mensaje ha sido enviado correctamente.",
+    })
+    setFormData({ name: "", email: "", message: "" })
+    setCaptchaVerified(false)
+  })
+  .catch((error) => {
+    console.error("Error al enviar el mensaje:", error)
+    setSubmitStatus({
+      success: false,
+      message: "Hubo un error al enviar tu mensaje. Intenta nuevamente.",
+    })
+  })
+  .finally(() => {
+    setLoading(false)
+  })
+}
 
   return (
     <section className="section contact" id="contacto">

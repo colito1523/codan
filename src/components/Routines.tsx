@@ -2,10 +2,14 @@ import { useState } from "react"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import "./Routines.css"
 import rutinaImg from "../assets/rutinas.jpeg"
+import PaymentModal from "./PopUps/PaymentModal"
+
 
 export default function PremiumRoutineShowcase() {
   const [activeTab, setActiveTab] = useState("descripcion")
   const [isExpanded, setIsExpanded] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab)
@@ -145,7 +149,7 @@ export default function PremiumRoutineShowcase() {
                   <span className="price-period">Inversión</span>
                 </div>
 
-                <button className="action-button">
+                <button className="action-button" onClick={() => setIsModalOpen(true)}>
                   <span>COMENZAR AHORA</span>
                   <ArrowRight className="button-icon" size={18} />
                 </button>
@@ -154,6 +158,9 @@ export default function PremiumRoutineShowcase() {
           </div>
         </div>
       </div>
+      <PaymentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
     </section>
+    
   )
 }

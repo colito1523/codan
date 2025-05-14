@@ -1,61 +1,37 @@
-"use client"
-
 import "./NutritionPlans.css"
 import nutrition1 from "../assets/nutrition1.jpg"
 import nutrition2 from "../assets/nutrition2.jpg"
 import nutrition3 from "../assets/nutrition3.jpeg"
 import nutrition4 from "../assets/nutrition4.jpeg"
+import PaymentModal from "./PopUps/PaymentModal"
 
 import { useState, useEffect, useRef } from "react"
 
-const sliderInterval = 3000
+const sliderInterval = 1000
 
 const NutritionPlans = () => {
-  const [indexOne, setIndexOne] = useState(0)
-  const [indexTwo, setIndexTwo] = useState(0)
-  const [loadedOne, setLoadedOne] = useState(true)
-  const [loadedTwo, setLoadedTwo] = useState(true)
-  const [prevIndexOne, setPrevIndexOne] = useState(0)
-  const [prevIndexTwo, setPrevIndexTwo] = useState(0)
-
-  const sliderOneImages = [nutrition1,nutrition3]
-  const sliderTwoImages = [nutrition2,nutrition4]
-
-  const timerOneRef = useRef(null)
-  const timerTwoRef = useRef(null)
-
-  useEffect(() => {
-    // First slider
-    timerOneRef.current = setInterval(() => {
-      setPrevIndexOne((prev) => prev)
-      setLoadedOne(false)
+  const [activeAlejandroImage, setActiveAlejandroImage] = useState(0)
+    const [activeValentinoImage, setActiveValentinoImage] = useState(0)
+      const [isModalOpen, setIsModalOpen] = useState(false)
   
-      setTimeout(() => {
-        setIndexOne((prev) => (prev + 1) % sliderOneImages.length)
-        setTimeout(() => {
-          setLoadedOne(true)
-        }, 100)
-      }, 600)
-    }, sliderInterval)
+    const alejandroImages = [nutrition1,nutrition2]
+    const valentinoImages = [nutrition3, nutrition4]
   
-    // Second slider with offset
-    timerTwoRef.current = setInterval(() => {
-      setPrevIndexTwo((prev) => prev)
-      setLoadedTwo(false)
+    // Auto transition effect
+    useEffect(() => {
+      const alejandroInterval = setInterval(() => {
+        setActiveAlejandroImage((prev) => (prev === 0 ? 1 : 0))
+      }, 2000)
   
-      setTimeout(() => {
-        setIndexTwo((prev) => (prev + 1) % sliderTwoImages.length)
-        setTimeout(() => {
-          setLoadedTwo(true)
-        }, 100)
-      }, 600)
-    }, sliderInterval + 1500) // Offset to avoid simultaneous transitions
+      const valentinoInterval = setInterval(() => {
+        setActiveValentinoImage((prev) => (prev === 0 ? 1 : 0))
+      }, 2000)
   
-    return () => {
-      clearInterval(timerOneRef.current)
-      clearInterval(timerTwoRef.current)
-    }
-  }, []) // <-- Acá, vacío, no pongas indexOne ni indexTwo
+      return () => {
+        clearInterval(alejandroInterval)
+        clearInterval(valentinoInterval)
+      }
+    }, [])
   
 
   return (
@@ -68,42 +44,56 @@ const NutritionPlans = () => {
         </div>
 
         <div className="nutrition-content">
-          <div className="nutrition-images">
-            <div className="nutrition-wrapper">
-              <div className="trainer-card one">
-                <div className="image-nutrition-container">
-                  {/* Current image */}
-                  <img
-                    src={sliderOneImages[indexOne] || "/placeholder.svg"}
-                    className={`nutrition-image ${loadedOne ? "loaded" : ""}`}
-                    alt="slide uno"
-                  />
-                  {/* Previous image for smooth transition */}
-                  <img
-                    src={sliderOneImages[prevIndexOne] || "/placeholder.svg"}
-                    className={`nutrition-image ${!loadedOne ? "loaded" : ""}`}
-                    alt="slide uno anterior"
-                    style={{ zIndex: -1 }}
-                  />
+        <div className="about-images">
+            <div className="trainer-wrapper">
+              <div className="trainer-card alejandro">
+                <div className="image-container">
+                  <div className="image-slider">
+                    {alejandroImages.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img || "/placeholder.svg"}
+                        alt={`Entrenador Alejandro ${index + 1}`}
+                        className={`trainer-image ${activeAlejandroImage === index ? "active" : ""}`}
+                      />
+                    ))}
+                  </div>
+                  <div className="image-dots">
+                    {alejandroImages.map((_, index) => (
+                      <span
+                        key={index}
+                        className={`dot ${activeAlejandroImage === index ? "active" : ""}`}
+                        onClick={() => setActiveAlejandroImage(index)}
+                      ></span>
+                    ))}
+                  </div>
                 </div>
+               
               </div>
 
-              <div className="trainer-card two">
-                <div className="image-nutrition-container">
-                  {/* Current image */}
-                  <img
-                    src={sliderTwoImages[indexTwo] || "/placeholder.svg"}
-                    className={`nutrition-image ${loadedTwo ? "loaded" : ""}`}
-                    alt="slide dos"
-                  />
-                  {/* Previous image for smooth transition */}
-                  <img
-                    src={sliderTwoImages[prevIndexTwo] || "/placeholder.svg"}
-                    className={`nutrition-image ${!loadedTwo ? "loaded" : ""}`}
-                    alt="slide dos anterior"
-                    style={{ zIndex: -1 }}
-                  />
+              <div className="trainer-card valentino">
+                <div className="image-container">
+                  <div className="image-slider">
+                    {valentinoImages.map((img, index) => (
+                      <img
+                        key={index}
+                        src={img || "/placeholder.svg"}
+                        alt={`Entrenador Valentino ${index + 1}`}
+                        className={`trainer-image ${activeValentinoImage === index ? "active" : ""}`}
+                      />
+                    ))}
+                  </div>
+                  <div className="image-dots">
+                    {valentinoImages.map((_, index) => (
+                      <span
+                        key={index}
+                        className={`dot ${activeValentinoImage === index ? "active" : ""}`}
+                        onClick={() => setActiveValentinoImage(index)}
+                      ></span>
+                    ))}
+                  </div>
                 </div>
+                
               </div>
             </div>
           </div>
@@ -130,10 +120,11 @@ const NutritionPlans = () => {
               </p>
             </div>
 
-            <button className="action-button">VER PLAN NUTRICIONAL</button>
+            <button className="action-button"  onClick={() => setIsModalOpen(true)}>VER PLAN NUTRICIONAL</button>
           </div>
         </div>
       </div>
+            <PaymentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }
