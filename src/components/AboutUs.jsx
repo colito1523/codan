@@ -4,7 +4,7 @@ import "./aboutUs.css"
 import alejandroImg from "../assets/alejandro.jpg"
 import valentinoImg from "../assets/Valentino_Antes.jpeg"
 // Assuming you'll add these new images to your assets folder
-import alejandroImg2 from "../assets/alejandro.jpg"
+import alejandroImg2 from "../assets/alejandro1.jpg"
 import valentinoImg2 from "../assets/Valentino_Despues.jpeg"
 
 const AboutUs = () => {

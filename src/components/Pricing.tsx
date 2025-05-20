@@ -1,8 +1,15 @@
 "use client"
 
+import type React from "react"
+
 import { useState, useEffect } from "react"
 import { ArrowRight } from "lucide-react"
 import "./pricing.css"
+
+import image1 from "../assets/plantillas/1.jpeg"
+import image2 from "../assets/plantillas/2.jpeg"
+import image3 from "../assets/plantillas/2.jpeg"
+
 
 export default function CinematicPricingConcept() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -30,6 +37,22 @@ export default function CinematicPricingConcept() {
       color: "#e03289",
     },
   ]
+
+const planImages = [
+  {
+    url: image1,
+    alt: "Plan de entrenamiento detallado",
+  },
+  {
+    url: image2,
+    alt: "Plan de nutrición personalizado",
+  },
+  {
+    url: image3,
+    alt: "Seguimiento y progreso semanal",
+  },
+]
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -63,16 +86,13 @@ export default function CinematicPricingConcept() {
             </div>
           </div>
 
-         
-
           <div className="highlights-container">
             <div className="highlights-track" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
               {highlights.map((highlight, index) => (
                 <div
                   key={index}
                   className={`highlight-item ${activeIndex === index ? "active" : ""} ${isAnimating ? "animating" : ""}`}
-                  style={{ "--highlight-color": highlight.color }}
-
+                  style={{ "--highlight-color": highlight.color } as React.CSSProperties}
                 >
                   <h3 className="highlight-title">{highlight.title}</h3>
                   <p className="highlight-description">{highlight.description}</p>
@@ -81,32 +101,40 @@ export default function CinematicPricingConcept() {
             </div>
 
             <div className="highlight-indicators">
-            {highlights.map((highlight, index) => (
-  <button
-    key={index}
-    className={`indicator ${activeIndex === index ? "active" : ""}`}
-    onClick={() => setActiveIndex(index)}
-    style={{ "--highlight-color": highlight.color }}
-  ></button>
-))}
-
+              {highlights.map((highlight, index) => (
+                <button
+                  key={index}
+                  className={`indicator ${activeIndex === index ? "active" : ""}`}
+                  onClick={() => setActiveIndex(index)}
+                  style={{ "--highlight-color": highlight.color } as React.CSSProperties}
+                ></button>
+              ))}
             </div>
           </div>
           <div className="cinematic-cta">
-            <button className="cinematic-button">
-              <span className="button-text">ASESORIA PARA ATLETAS EXCLUSIVOS</span>
-              <ArrowRight className="button-icon" size={20} />
-              <div className="button-glow"></div>
-            </button>
+           <a
+  href="mailto:team.codan@codanfit.com?subject=Quiero%20una%20asesoría%20personalizada&body=Hola%20Lucas,%20me%20gustaría%20saber%20más%20sobre%20la%20asesoría%20para%20atletas."
+  className="cinematic-button"
+>
+  <span className="button-text">ASESORIA PARA ATLETAS EXCLUSIVOS</span>
+  <ArrowRight className="button-icon" size={20} />
+  <div className="button-glow"></div>
+</a>
+
           </div>
         </div>
 
         <div className="cinematic-visual">
           <div className="visual-container">
-            <div className="before-image"></div>
-            <div className="before-after-label">ANTES</div>
-            <div className="after-image"></div>
-            <div className="before-after-label after-label">DESPUÉS</div>
+            <div className="plan-images-stack">
+{planImages.map((image, index) => (
+  <div key={index} className="plan-image-container">
+    <img src={image.url} alt={image.alt} className="plan-image" />
+  </div>
+))}
+
+
+            </div>
           </div>
         </div>
       </div>

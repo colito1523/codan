@@ -120,7 +120,17 @@ const NutritionPlans = () => {
               </p>
             </div>
 
-            <button className="action-button"  onClick={() => setIsModalOpen(true)}>VER PLAN NUTRICIONAL</button>
+           <div className="nutrition-action-area">
+  <div className="price-display">
+    <span className="price-value">U$D 40.00</span>
+    <span className="price-period">Inversión</span>
+  </div>
+
+  <button className="action-button" onClick={() => setIsModalOpen(true)}>
+    VER PLAN NUTRICIONAL
+  </button>
+</div>
+
           </div>
         </div>
       </div>
