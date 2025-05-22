@@ -3,7 +3,8 @@ import nutrition1 from "../assets/nutrition1.jpg"
 import nutrition2 from "../assets/nutrition2.jpg"
 import nutrition3 from "../assets/nutrition3.jpeg"
 import nutrition4 from "../assets/nutrition4.jpeg"
-import PaymentModal from "./PopUps/PaymentModal"
+import PaypalButtonNutrition from "../components/Paypal/PaypalButtonNutrition"
+import Modal from "./Modal"
 
 import { useState, useEffect, useRef } from "react"
 
@@ -130,11 +131,13 @@ const NutritionPlans = () => {
     VER PLAN NUTRICIONAL
   </button>
 </div>
+<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+  <PaypalButtonNutrition/>
+</Modal>
 
           </div>
         </div>
       </div>
-            <PaymentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   )
 }

@@ -2,7 +2,8 @@ import { useState } from "react"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import "./Routines.css"
 import rutinaImg from "../assets/rutinas.jpeg"
-import PaymentModal from "./PopUps/PaymentModal"
+import PaypalButtonRoutine from "./Paypal/PaypalButtonRoutine"
+import Modal from "./Modal"
 
 
 export default function PremiumRoutineShowcase() {
@@ -143,22 +144,26 @@ export default function PremiumRoutineShowcase() {
               </div>
 
 
-              <div className="action-area">
-                <div className="price-display">
-                  <span className="price-value">U$D 26.000</span>
-                  <span className="price-period">Inversión</span>
-                </div>
+             <div className="action-area">
+  <div className="price-display">
+    <span className="price-value">U$D 26.000</span>
+    <span className="price-period">Inversión</span>
+  </div>
 
-                <button className="action-button" onClick={() => setIsModalOpen(true)}>
-                  <span>COMENZAR AHORA</span>
-                  <ArrowRight className="button-icon" size={18} />
-                </button>
-              </div>
+  <button className="action-button" onClick={() => setIsModalOpen(true)}>
+    <span>COMENZAR AHORA</span>
+    <ArrowRight className="button-icon" size={18} />
+  </button>
+</div>
+
+<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+  <PaypalButtonRoutine />
+</Modal>
             </div>
           </div>
         </div>
       </div>
-      <PaymentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        
 
     </section>
     

@@ -1,5 +1,6 @@
 // components/PaymentModal.jsx
 import "./PaymentModal.css"
+import PaypalButtonNutrition from "../Paypal/PaypalButtonNutrition"
 
 export default function PaymentModal({ isOpen, onClose }) {
   if (!isOpen) return null
@@ -11,8 +12,7 @@ export default function PaymentModal({ isOpen, onClose }) {
         <h3 className="modal-title">Método de Pago</h3>
         <p className="modal-text">Seleccioná PayPal para continuar con tu compra.</p>
         <div className="paypal-button">
-          <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" />
-          <button className="btn-paypal">Pagar con PayPal</button>
+          <PaypalButtonNutrition />
         </div>
       </div>
     </div>
