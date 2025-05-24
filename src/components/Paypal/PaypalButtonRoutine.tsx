@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import emailjs from "emailjs-com"
 
-export default function PaypalButtonRoutine() {
+export default function PaypalButtonRoutine({ onSuccess }: { onSuccess: () => void }) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -51,18 +51,18 @@ const date = now.toLocaleDateString()
 const time = now.toLocaleTimeString()
 const product = "Rutina Personalizada"
 
-        emailjs.send(
-          "service_c7xmkxl",
-          "template_67v85rd",
-          { name, email, amount, order_id, date, time, product },
-          "VxC3Os0ExOSzeJoO4"
-        ).then(() => {
-          alert("✅ ¡Compra realizada y email enviado!")
-        }).catch(err => {
-          console.error("❌ Error al enviar email:", err)
-          alert("La compra se procesó, pero no se pudo enviar el email.")
-        })
-      },
+      emailjs.send(
+    "service_c7xmkxl",
+    "template_67v85rd",
+    { name, email, amount, order_id, date, time, product },
+    "VxC3Os0ExOSzeJoO4"
+  ).then(() => {
+    onSuccess()
+  }).catch(err => {
+    console.error("❌ Error al enviar email:", err)
+    alert("La compra se procesó, pero no se pudo enviar el email.")
+  })
+},
       onError: (err) => {
         console.error("❌ Error de PayPal:", err)
         alert("Hubo un error al procesar el pago.")

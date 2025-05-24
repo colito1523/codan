@@ -10,6 +10,7 @@ export default function PremiumRoutineShowcase() {
   const [activeTab, setActiveTab] = useState("descripcion")
   const [isExpanded, setIsExpanded] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false)
 
 
   const handleTabClick = (tab: string) => {
@@ -157,13 +158,51 @@ export default function PremiumRoutineShowcase() {
 </div>
 
 <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-  <PaypalButtonRoutine />
+ <PaypalButtonRoutine
+  onSuccess={() => {
+    setIsModalOpen(false)
+    setShowSuccessPopup(true)
+    setTimeout(() => setShowSuccessPopup(false), 4000)
+  }}
+/>
 </Modal>
+
             </div>
           </div>
         </div>
       </div>
-        
+        {showSuccessPopup && (
+  <div style={{
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "rgba(0, 0, 0, 0.75)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 9999
+  }}>
+    <div style={{
+      backgroundColor: "#1e1e1e",
+      borderRadius: "16px",
+      padding: "40px 30px",
+      maxWidth: "90%",
+      textAlign: "center",
+      boxShadow: "0 10px 25px rgba(0,0,0,0.6)",
+      color: "#00c851",
+      animation: "fadeIn 0.3s ease-in-out"
+    }}>
+      <CheckCircle size={48} style={{ marginBottom: "20px" }} />
+      <h2 style={{ margin: "0 0 10px", fontSize: "24px" }}>¡Compra realizada exitosamente!</h2>
+      <p style={{ color: "#ccc", fontSize: "16px" }}>
+        Gracias por tu confianza. Nuestro equipo se pondrá en contacto contigo a la brevedad para coordinar los próximos pasos.
+      </p>
+    </div>
+  </div>
+)}
+
 
     </section>
     
