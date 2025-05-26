@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import ReCAPTCHA from "react-google-recaptcha"
+
 import emailjs from "@emailjs/browser"
 import "./ContactForm.css"
 
@@ -12,10 +12,8 @@ const ContactForm = () => {
     message: "",
   })
   const [loading, setLoading] = useState(false)
-  const [captchaVerified, setCaptchaVerified] = useState(false)
   const [submitStatus, setSubmitStatus] = useState({ success: false, message: "" })
   const formRef = useRef(null)
-  const captchaRef = useRef(null)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -25,26 +23,12 @@ const ContactForm = () => {
     })
   }
 
-  const handleCaptchaChange = (value) => {
-    // value será null si el captcha expira
-    setCaptchaVerified(!!value)
-  }
+
 
  const handleSubmit = async (e) => {
   e.preventDefault()
 
-  const token = await captchaRef.current.executeAsync()
-  captchaRef.current.reset()
 
-  if (!token) {
-    setSubmitStatus({
-      success: false,
-      message: "Por favor, completa el captcha antes de enviar el formulario.",
-    })
-    return
-  }
-
-  setCaptchaVerified(true)
   setLoading(true)
 
   emailjs.send(
@@ -64,7 +48,7 @@ const ContactForm = () => {
       message: "¡Gracias! Tu mensaje ha sido enviado correctamente.",
     })
     setFormData({ name: "", email: "", message: "" })
-    setCaptchaVerified(false)
+ 
   })
   .catch((error) => {
     console.error("Error al enviar el mensaje:", error)
@@ -136,16 +120,6 @@ const ContactForm = () => {
               rows="4"
               required
             ></textarea>
-          </div>
-
-          <div className="captcha-container">
-            <ReCAPTCHA
-              ref={captchaRef}
-              sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-              onChange={handleCaptchaChange}
-               size="invisible"
-              theme="dark"
-            />
           </div>
 
           {submitStatus.message && (

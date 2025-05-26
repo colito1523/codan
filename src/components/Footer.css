@@ -135,6 +135,7 @@
   color: #ccc;
   font-size: 14px;
   transition: all 0.3s ease;
+   text-decoration: none; /* <- Esto evita el subrayado */
 }
 
 .contact-item:hover .contact-text {

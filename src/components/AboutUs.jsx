@@ -31,7 +31,7 @@ const AboutUs = () => {
   }, [])
 
   return (
-    <section className="section about-us" id="about-us">
+    <section className="section about-us sape" id="about-us">
       <div className="container">
         <div className="about-content">
           <div className="about-images">

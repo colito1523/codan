@@ -45,14 +45,29 @@ const Footer = () => {
 
           <div className="footer-section">
             <h3 className="footer-title">CONTACTO</h3>
-            <div className="contact-item">
+          <div className="contact-item">
   <FaInstagram className="contact-icon" />
-  <span className="contact-text">@Valen_colombo02</span>
+  <a
+    href="https://www.instagram.com/valen_colombofitt/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="contact-text"
+  >
+    @Valen_colombo02
+  </a>
 </div>
 <div className="contact-item">
   <FaInstagram className="contact-icon" />
-  <span className="contact-text">@Aleedaniele</span>
+  <a
+    href="https://www.instagram.com/aleedaniele/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="contact-text"
+  >
+    @Aleedaniele
+  </a>
 </div>
+
 
           </div>
 

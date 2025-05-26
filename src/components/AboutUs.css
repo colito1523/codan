@@ -1,4 +1,3 @@
-
 .about-us {
   background-color: #0a0a0a;
   padding: 80px 0;
@@ -181,7 +180,7 @@
   color: #fff;
   font-size: clamp(28px, 5vw, 40px);
   letter-spacing: 4px;
- font-weight: 900;
+  font-weight: 900;
   font-family: "Roboto", sans-serif;
   margin-right: 12px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -190,7 +189,7 @@
 .accent-title {
   color: #ff3b3b;
   font-size: clamp(28px, 5vw, 40px);
- font-weight: 900;
+  font-weight: 900;
   font-family: "Roboto", sans-serif;
   letter-spacing: 4px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -316,7 +315,6 @@
   }
 }
 
-
 @media (max-width: 1200px) {
   .about-images {
     height: 550px;
@@ -370,9 +368,19 @@
   }
 }
 
+@media (max-width: 870px) {
+  .sape {
+    padding-bottom: 20vh;
+  }
+}
+
 @media (max-width: 768px) {
   .about-us {
     padding: 60px 0;
+  }
+
+  .sape {
+    padding-bottom: 50vh;
   }
 
   .about-images {
@@ -400,9 +408,14 @@
   }
 }
 
+/* Arreglo específico para móviles - evitar superposición */
 @media (max-width: 576px) {
   .about-us {
     padding: 40px 0 80px; /* Añadido padding inferior para más espacio */
+  }
+
+  .sape {
+    padding-bottom: 80vh;
   }
 
   .about-images {
@@ -411,15 +424,24 @@
   }
 
   .trainer-wrapper {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
+    height: auto;
+    min-height: 600px;
+    padding: 20px 0;
   }
 
   .trainer-card.alejandro,
   .trainer-card.valentino {
-    width: 80%;
-    max-width: 300px;
+    position: relative !important;
+    width: 85%;
+    max-width: 320px;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0;
   }
 
   .title-container-with-bg {
@@ -445,19 +467,16 @@
 }
 
 @media (max-width: 480px) {
-  .about-images {
-    height: 320px;
+  .trainer-wrapper {
+    min-height: 550px;
+    gap: 35px;
+    padding: 15px 0;
   }
 
-  .trainer-card.alejandro {
-    width: 70%;
-    left: 0;
-  }
-
+  .trainer-card.alejandro,
   .trainer-card.valentino {
-    width: 70%;
-    top: 25%;
-    left: 25%;
+    width: 90%;
+    max-width: 300px;
   }
 
   .name-highlight {
@@ -470,17 +489,15 @@
 }
 
 @media (max-width: 375px) {
-  .about-images {
-    height: 280px;
+  .trainer-wrapper {
+    min-height: 500px;
+    gap: 30px;
   }
 
   .trainer-card.alejandro,
   .trainer-card.valentino {
-    width: 80%;
-  }
-
-  .trainer-card.valentino {
-    left: 15%;
+    width: 95%;
+    max-width: 280px;
   }
 
   .trainer-name {

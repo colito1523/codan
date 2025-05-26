@@ -74,8 +74,7 @@ const planImages = [
         <div className="cinematic-content">
           <div className="cinematic-header">
             <h2 className="cinematic-title">
-              TRANSFORMA TU FÍSICO
-              <span className="title-highlight"> HOY</span>
+              TRANSFORMA TU FÍSICO<span className="title-highlight">&nbsp;HOY</span>
             </h2>
 
             <div className="plan-badge">

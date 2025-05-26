@@ -139,6 +139,15 @@ export default function PremiumRoutineShowcase() {
                           <p>Tutoriales de cada ejercicio con técnica correcta</p>
                         </div>
                       </div>
+                       <div className="include-item">
+                        <div className="include-icon">
+                          <div className="icon-diamond"></div>
+                        </div>
+                        <div className="include-details">
+                          <h4>Seguimiento Gratuito</h4>
+                          <p>2 semanas donde te vamos acompañar, para encontrar una mayor personalización y ajuste de la rutina</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -147,7 +156,7 @@ export default function PremiumRoutineShowcase() {
 
              <div className="action-area">
   <div className="price-display">
-    <span className="price-value">U$D 26.000</span>
+    <span className="price-value">U$D 26.00</span>
     <span className="price-period">Inversión</span>
   </div>
 
