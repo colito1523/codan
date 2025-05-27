@@ -33,6 +33,13 @@ const AboutUs = () => {
   return (
     <section className="section about-us sape" id="about-us">
       <div className="container">
+         <div className="title-container-with-bg">
+              <div className="title-background">FITNESS</div>
+              <div className="title-content">
+                <h2 className="title">SOBRE</h2>
+                <h2 className="accent-title">NOSOTROS</h2>
+              </div>
+            </div>
         <div className="about-content">
           <div className="about-images">
             <div className="trainer-wrapper">
@@ -88,14 +95,9 @@ const AboutUs = () => {
             </div>
           </div>
 
+
           <div className="about-text">
-            <div className="title-container-with-bg">
-              <div className="title-background">FITNESS</div>
-              <div className="title-content">
-                <h2 className="title">SOBRE</h2>
-                <h2 className="accent-title">NOSOTROS</h2>
-              </div>
-            </div>
+           
 
             <p className="paragraph">
               ¡Hola! Somos Alejandro Daniele y Valentino Colombo, 2 expertos en la superación personal.

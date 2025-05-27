@@ -53,7 +53,7 @@ const Footer = () => {
     rel="noopener noreferrer"
     className="contact-text"
   >
-    @Valen_colombo02
+    @Valen_colombofitt
   </a>
 </div>
 <div className="contact-item">

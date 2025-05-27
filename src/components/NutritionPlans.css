@@ -1,284 +1,347 @@
-.nutrition-plans {
-  background-color: #0a0a0a;
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
-}
+  .nutrition-plans {
+    background-color: #0a0a0a;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
 
-.nutrition-plans::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(255, 59, 59, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
-  z-index: 1;
-}
+  .nutrition-plans::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 59, 59, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+  }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-  position: relative;
-  z-index: 2;
-}
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+  }
 
-.nutrition-title-container {
-  margin-bottom: 50px;
-  position: relative;
-}
+  .nutrition-title-container {
+    margin-bottom: 50px;
+    position: relative;
+  }
 
-.nutrition-title {
-  color: #ffffff;
-  font-size: 36px;
-  font-weight: 900;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 3px;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
+  .nutrition-title {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 3px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
 
-.nutrition-accent-title {
-  color: #ff3b3b;
-  font-weight: 900;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 3px;
-  position: relative;
-  display: inline-block;
-}
+  .nutrition-accent-title {
+    color: #ff3b3b;
+    font-weight: 900;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+  }
 
-.nutrition-accent-title::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background-color: #ff3b3b;
-}
+  .nutrition-accent-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #ff3b3b;
+  }
 
-.nutrition-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
-}
+  .nutrition-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
 
-.nutrition-images {
-  flex: 1;
-  min-width: 300px;
-  position: relative;
-}
+  .nutrition-images {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+  }
 
-.nutrition-wrapper {
-  position: relative;
-  height: 500px;
-  width: 100%;
-}
+  .nutrition-wrapper {
+    position: relative;
+    height: 500px;
+    width: 100%;
+  }
 
-.trainer-card {
-  position: absolute;
-  width: 45%;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  overflow: hidden;
-}
+  .trainer-card {
+    position: absolute;
+    width: 45%;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+  }
 
-.trainer-card.one {
-  top: 0;
-  left: 0;
-  z-index: 2;
-  transform: rotate(-3deg);
-}
+  .trainer-card.one {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transform: rotate(-3deg);
+  }
 
-.trainer-card.two {
-  top: 25%;
-  left: 50%;
-  z-index: 1;
-  transform: rotate(3deg);
-}
+  .trainer-card.two {
+    top: 25%;
+    left: 50%;
+    z-index: 1;
+    transform: rotate(3deg);
+  }
 
-.image-nutrition-container {
-  position: relative;
-  overflow: hidden;
-  border: 2px solid #333;
-  transition: all 0.4s ease;
-  border-radius: 8px;
-  height: 400px;
-}
+  .image-nutrition-container {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #333;
+    transition: all 0.4s ease;
+    border-radius: 8px;
+    height: 400px;
+  }
 
-.nutrition-image {
+  .nutrition-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out, transform 1.5s ease-in-out;
+    transform: scale(1.1);
+  }
+
+  .nutrition-image.loaded {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .trainer-card:hover .image-nutrition-container {
+    border-color: #ff3b3b;
+    box-shadow: 0 0 25px rgba(255, 59, 59, 0.6);
+  }
+
+  .trainer-card:hover {
+    transform: scale(1.05) rotate(0);
+  }
+
+  .nutrition-text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .nutrition-point {
+    display: flex;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+  }
+
+  .nutrition-point:hover {
+    transform: translateX(5px);
+  }
+
+  .nutrition-bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff3b3b;
+    margin-top: 8px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
+  }
+
+  .nutrition-paragraph {
+    color: #e0e0e0;
+    font-size: 16px;
+    line-height: 1.8;
+    flex: 1;
+    font-family: "Inter", sans-serif;
+    margin: 0;
+  }
+
+  .nutrition-button {
+    background-color: transparent;
+    border: 2px solid #ff3b3b;
+    color: #fff;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-top: 30px;
+    float: right;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border-radius: 4px;
+  }
+
+  .nutrition-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ff3b3b;
+    transition: all 0.4s ease;
+    z-index: -1;
+  }
+
+  .nutrition-button:hover {
+    color: #fff;
+  }
+
+  .nutrition-button:hover::before {
+    left: 0;
+  }
+
+  @media (max-width: 992px) {
+    .nutrition-content {
+      flex-direction: column;
+    }
+
+    .nutrition-images {
+      flex: 0 0 100%;
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
+
+    .nutrition-text {
+      flex: 0 0 100%;
+    }
+
+    .nutrition-wrapper {
+      height: 450px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nutrition-plans {
+      padding: 60px 0;
+    }
+
+    .nutrition-title {
+      font-size: 30px;
+    }
+
+    .nutrition-wrapper {
+      height: 400px;
+    }
+
+    .trainer-card.one,
+    .trainer-card.two {
+      width: 48%;
+    }
+
+    .image-nutrition-container {
+      height: 350px;
+    }
+
+    .nutrition-button {
+      width: 100%;
+      float: none;
+      text-align: center;
+    }
+
+    .nutrition-paragraph {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nutrition-plans {
+      padding: 50px 0;
+    }
+
+    .nutrition-title {
+      font-size: 26px;
+    }
+
+    .nutrition-wrapper {
+      height: 350px;
+    }
+
+    .image-nutrition-container {
+      height: 300px;
+    }
+
+    .nutrition-paragraph {
+      font-size: 14px;
+    }
+
+    .nutrition-button {
+      padding: 12px 24px;
+      font-size: 14px;
+    }
+  }
+
+  .nutrition-action-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    border-top: 1px solid #222;
+    padding-top: 30px;
+  }
+
+  .price-display {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ff3b3b;
+  }
+
+  .price-period {
+    font-size: 14px;
+    color: #ccc;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .nutrition-action-area {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .action-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .trainer-images {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out, transform 1.5s ease-in-out;
-  transform: scale(1.1);
+  filter: contrast(1.1);
+  transition: all 0.6s ease;
 }
 
-.nutrition-image.loaded {
-  opacity: 1;
-  transform: scale(1);
+.trainer-card:hover .trainer-images {
+  filter: grayscale(0%) contrast(1.1);
+  transform: scale(1.05);
 }
 
-.trainer-card:hover .image-nutrition-container {
-  border-color: #ff3b3b;
-  box-shadow: 0 0 25px rgba(255, 59, 59, 0.6);
-}
-
-.trainer-card:hover {
-  transform: scale(1.05) rotate(0);
-}
-
-.nutrition-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.nutrition-point {
-  display: flex;
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
-}
-
-.nutrition-point:hover {
-  transform: translateX(5px);
-}
-
-.nutrition-bullet {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ff3b3b;
-  margin-top: 8px;
-  margin-right: 15px;
-  flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
-}
-
-.nutrition-paragraph {
-  color: #e0e0e0;
-  font-size: 16px;
-  line-height: 1.8;
-  flex: 1;
-  font-family: "Inter", sans-serif;
-  margin: 0;
-}
-
-.nutrition-button {
-  background-color: transparent;
-  border: 2px solid #ff3b3b;
-  color: #fff;
-  padding: 14px 28px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  margin-top: 30px;
-  float: right;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  border-radius: 4px;
-}
-
-.nutrition-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #ff3b3b;
-  transition: all 0.4s ease;
-  z-index: -1;
-}
-
-.nutrition-button:hover {
-  color: #fff;
-}
-
-.nutrition-button:hover::before {
-  left: 0;
-}
-
-.nutrition-action-area {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 40px;
-  border-top: 1px solid #222;
-  padding-top: 30px;
-}
-
-.price-display {
-  display: flex;
-  flex-direction: column;
-}
-
-.price-value {
-  font-size: 28px;
-  font-weight: 800;
-  color: #ff3b3b;
-}
-
-.price-period {
-  font-size: 14px;
-  color: #ccc;
-  text-transform: uppercase;
-}
-
-.action-button {
-  background-color: transparent;
-  border: 2px solid #ff3b3b;
-  color: #fff;
-  padding: 14px 28px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  border-radius: 4px;
-}
-
-.action-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #ff3b3b;
-  transition: all 0.4s ease;
-  z-index: -1;
-}
-
-.action-button:hover {
-  color: #fff;
-}
-
-.action-button:hover::before {
-  left: 0;
-}
-
-/* Estilos para slider de imágenes */
-.image-slider {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.trainer-image {
+.trainer-images {
   position: absolute;
   top: 0;
   left: 0;
@@ -287,205 +350,34 @@
   object-fit: cover;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  filter: grayscale(100%) contrast(1.1);
+  filter: contrast(1.1);
 }
 
-.trainer-image.active {
+.trainer-images.active {
   opacity: 1;
   z-index: 1;
 }
-
-.image-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  z-index: 2;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dot.active {
-  background-color: #ff3b3b;
-  transform: scale(1.2);
-}
-
-.trainer-card:hover .trainer-image.active {
+.trainer-card:hover .trainer-images.active {
   filter: grayscale(0%) contrast(1.1);
   transform: scale(1.05);
 }
-
-.image-container {
-  position: relative;
-  overflow: hidden;
-  border: 2px solid #222;
-  transition: all 0.4s ease;
-  border-radius: 8px;
-  aspect-ratio: 3 / 4;
-}
-
-@media (max-width: 992px) {
-  .nutrition-content {
-    flex-direction: column;
+/* Mejora para dispositivos táctiles */
+@media (hover: none) {
+  .trainer-card:active .image-container {
+    border-color: #ff3b3b;
+    box-shadow: 0 0 20px rgba(255, 59, 59, 0.7);
   }
 
-  .nutrition-images {
-    flex: 0 0 100%;
-    margin-right: 0;
-    margin-bottom: 40px;
+  .trainer-card:active .trainer-images {
+    filter: grayscale(0%);
   }
 
-  .nutrition-text {
-    flex: 0 0 100%;
+  .trainer-card:active .trainer-name {
+    background-color: #1a1a1a;
+    color: #ff3b3b;
   }
 
-  .nutrition-wrapper {
-    height: 450px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nutrition-plans {
-    padding: 60px 0;
-  }
-
-  .nutrition-title {
-    font-size: 30px;
-  }
-
-  .nutrition-wrapper {
-    height: 400px;
-  }
-
-  .trainer-card.one,
-  .trainer-card.two {
-    width: 48%;
-  }
-
-  .image-nutrition-container,
-  .image-container {
-    height: 350px;
-  }
-
-  .nutrition-button {
+  .trainer-card:active .trainer-name::after {
     width: 100%;
-    float: none;
-    text-align: center;
-  }
-
-  .nutrition-paragraph {
-    font-size: 15px;
-  }
-
-  .nutrition-action-area {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-
-  .action-button {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* Arreglo específico para móviles - evitar superposición */
-@media (max-width: 576px) {
-  .nutrition-plans {
-    padding: 50px 0 80px;
-  }
-
-  .nutrition-title {
-    font-size: 26px;
-  }
-
-  .nutrition-images {
-    margin-bottom: 60px;
-  }
-
-  .nutrition-wrapper {
-    height: auto;
-    min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 20px 0;
-  }
-
-  .trainer-card.one,
-  .trainer-card.two {
-    position: relative !important;
-    width: 85%;
-    max-width: 320px;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    margin: 0;
-  }
-
-  .image-nutrition-container,
-  .image-container {
-    height: 300px;
-  }
-
-  .nutrition-paragraph {
-    font-size: 14px;
-  }
-
-  .nutrition-button {
-    padding: 12px 24px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .nutrition-plans {
-    padding: 50px 0 100px;
-  }
-
-  .nutrition-wrapper {
-    min-height: 550px;
-    gap: 35px;
-    padding: 15px 0;
-  }
-
-  .trainer-card.one,
-  .trainer-card.two {
-    width: 90%;
-    max-width: 300px;
-  }
-
-  .image-nutrition-container,
-  .image-container {
-    height: 280px;
-  }
-}
-
-@media (max-width: 375px) {
-  .nutrition-wrapper {
-    min-height: 500px;
-    gap: 30px;
-  }
-
-  .trainer-card.one,
-  .trainer-card.two {
-    width: 95%;
-    max-width: 280px;
-  }
-
-  .image-nutrition-container,
-  .image-container {
-    height: 260px;
   }
 }

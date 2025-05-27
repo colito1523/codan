@@ -58,7 +58,7 @@ const NutritionPlans = () => {
                         key={index}
                         src={img || "/placeholder.svg"}
                         alt={`Entrenador Alejandro ${index + 1}`}
-                        className={`trainer-image ${activeAlejandroImage === index ? "active" : ""}`}
+                        className={`trainer-images ${activeAlejandroImage === index ? "active" : ""}`}
                       />
                     ))}
                   </div>
@@ -82,7 +82,7 @@ const NutritionPlans = () => {
                         key={index}
                         src={img || "/placeholder.svg"}
                         alt={`Entrenador Valentino ${index + 1}`}
-                        className={`trainer-image ${activeValentinoImage === index ? "active" : ""}`}
+                        className={`trainer-images ${activeValentinoImage === index ? "active" : ""}`}
                       />
                     ))}
                   </div>

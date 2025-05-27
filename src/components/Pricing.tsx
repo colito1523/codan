@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef  } from "react"
 import { ArrowRight } from "lucide-react"
 import "./pricing.css"
 
@@ -14,6 +14,29 @@ import image3 from "../assets/plantillas/2.jpeg"
 export default function CinematicPricingConcept() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const touchStartX = useRef(0)
+const touchEndX = useRef(0)
+
+const handleTouchStart = (e: React.TouchEvent) => {
+  touchStartX.current = e.touches[0].clientX
+}
+
+const handleTouchMove = (e: React.TouchEvent) => {
+  touchEndX.current = e.touches[0].clientX
+}
+
+const handleTouchEnd = () => {
+  const delta = touchStartX.current - touchEndX.current
+  const threshold = 50 // sensibilidad mínima
+
+  if (Math.abs(delta) > threshold && !isAnimating) {
+    if (delta > 0 && activeIndex < highlights.length - 1) {
+      setActiveIndex((prev) => prev + 1)
+    } else if (delta < 0 && activeIndex > 0) {
+      setActiveIndex((prev) => prev - 1)
+    }
+  }
+}
 
   const highlights = [
     {
@@ -61,7 +84,7 @@ const planImages = [
         setActiveIndex((prev) => (prev + 1) % highlights.length)
         setIsAnimating(false)
       }, 500)
-    }, 4000)
+    }, 8000)
 
     return () => clearInterval(interval)
   }, [highlights.length])
@@ -80,12 +103,15 @@ const planImages = [
             <div className="plan-badge">
               <div className="badge-content">
                 <span className="badge-title">3 MESES + 1</span>
-                <span className="badge-subtitle">ONLINE MENSUAL</span>
+                <span className="badge-subtitle">ONLINE TRIMESTRAL</span>
               </div>
             </div>
           </div>
 
-          <div className="highlights-container">
+          <div className="highlights-container"
+          onTouchStart={handleTouchStart}
+  onTouchMove={handleTouchMove}
+  onTouchEnd={handleTouchEnd}>
             <div className="highlights-track" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
               {highlights.map((highlight, index) => (
                 <div
@@ -112,7 +138,7 @@ const planImages = [
           </div>
           <div className="cinematic-cta">
            <a
-  href="mailto:team.codan@codanfit.com?subject=Quiero%20una%20asesoría%20personalizada&body=Hola%20Lucas,%20me%20gustaría%20saber%20más%20sobre%20la%20asesoría%20para%20atletas."
+ href="mailto:team.codan@codanfit.com?subject=Quiero%20una%20asesoría%20personalizada&body=Hola%20equipo,%20me%20gustaría%20saber%20más%20sobre%20la%20asesoría%20personalizada%20para%20atletas%20exclusivos."
   className="cinematic-button"
 >
   <span className="button-text">ASESORIA PARA ATLETAS EXCLUSIVOS</span>

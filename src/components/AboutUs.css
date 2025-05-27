@@ -71,11 +71,12 @@
   overflow: hidden;
   border: 2px solid #222;
   transition: all 0.4s ease;
+  aspect-ratio: 3 / 4;
 }
 
 .trainer-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   display: block;
   filter: grayscale(100%) contrast(1.1);
@@ -295,15 +296,6 @@
   transform: scale(1.05);
 }
 
-/* Asegurarse de que las imágenes tengan altura adecuada */
-.image-container {
-  position: relative;
-  overflow: hidden;
-  border: 2px solid #222;
-  transition: all 0.4s ease;
-  aspect-ratio: 3 / 4; /* Ajusta según la proporción de tus imágenes */
-}
-
 @media (max-width: 768px) {
   .image-dots {
     bottom: 5px;
@@ -326,14 +318,9 @@
     flex-direction: column;
   }
 
-  .about-text {
-    order: 1; /* Esto hace que el texto aparezca primero */
-  }
-
   .about-images {
-    order: 2; /* Esto hace que las imágenes aparezcan después */
     margin-right: 0;
-    margin-bottom: 200px; /* Añadido margen inferior para separar de la siguiente sección */
+    margin-bottom: 40px;
     height: 500px;
     max-width: 600px;
     margin-left: auto;
@@ -368,25 +355,16 @@
   }
 }
 
-@media (max-width: 870px) {
-  .sape {
-    padding-bottom: 20vh;
-  }
-}
 
 @media (max-width: 768px) {
   .about-us {
     padding: 60px 0;
   }
 
-  .sape {
-    padding-bottom: 50vh;
-  }
-
   .about-images {
     height: auto;
     margin-top: 40px;
-    margin-bottom: 80px; /* Aumentado el margen inferior para pantallas más pequeñas */
+    margin-bottom: 60px;
   }
 
   .trainer-wrapper {
@@ -408,28 +386,24 @@
   }
 }
 
-/* Arreglo específico para móviles - evitar superposición */
+/* Arreglo específico para móviles - evitar superposición (igual que NutritionPlans) */
 @media (max-width: 576px) {
   .about-us {
-    padding: 40px 0 80px; /* Añadido padding inferior para más espacio */
-  }
-
-  .sape {
-    padding-bottom: 80vh;
+    padding: 40px 0 80px;
   }
 
   .about-images {
     height: auto;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 
   .trainer-wrapper {
+    height: auto;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    height: auto;
-    min-height: 600px;
     padding: 20px 0;
   }
 
@@ -467,6 +441,10 @@
 }
 
 @media (max-width: 480px) {
+  .about-us {
+    padding: 40px 0 100px;
+  }
+
   .trainer-wrapper {
     min-height: 550px;
     gap: 35px;

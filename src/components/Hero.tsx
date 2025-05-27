@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef  } from "react"
 import "./hero.css"
 import sliderImage1 from "../assets/slider1.png" // ajustá el path según la estructura
 import sliderImage2 from "../assets/slider2.png" // ajustá el path según la estructura
@@ -8,6 +8,8 @@ import sliderImage3 from "../assets/slider3.png" // ajustá el path según la es
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+    const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
 
   const slides = [
     {
@@ -66,9 +68,35 @@ const Hero = () => {
     return () => clearInterval(interval)
   }, [currentSlide])
 
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+  
+  const handleTouchEnd = () => {
+    const delta = touchStartX.current - touchEndX.current
+    const threshold = 50
+
+    if (Math.abs(delta) > threshold) {
+      if (delta > 0) {
+        nextSlide()
+      } else {
+        prevSlide()
+      }
+    }
+  }
+
   return (
     <section className="hero" id="hero">
-      <div className="slider-container">
+      <div className="slider-container"
+       onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}>
+          
         {slides.map((slide, index) => (
           <div
             key={index}
